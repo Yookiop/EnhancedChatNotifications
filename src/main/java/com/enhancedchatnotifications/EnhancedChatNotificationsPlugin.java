@@ -158,7 +158,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 			List<Pattern> patterns = new ArrayList<>();
 
 			Notification notification = getNotificationEnabled(i);
-			if (!notification.isEnabled() && getOverlayText(i).isEmpty())
+			if (!notification.isEnabled())
 			{
 				allListPatterns.add(patterns);
 				continue;
@@ -257,6 +257,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 
 		switch (chatMessage.getType())
 		{
+			case PRIVATECHAT:
 			case PRIVATECHATOUT:
 			case DIALOG:
 			case MESBOX:
@@ -322,10 +323,10 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 			{
 				int listNum = listIdx + 1;
 				Notification notification = getNotificationEnabled(listNum);
-				sendNotification(notification, chatMessage);
-
 				if (notification.isEnabled())
 				{
+					sendNotification(notification, chatMessage);
+
 					String overlayText = getOverlayText(listNum);
 					if (!overlayText.isEmpty())
 					{

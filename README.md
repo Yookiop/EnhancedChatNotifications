@@ -1,2 +1,1 @@
-# Example
-An example greeter plugin
+This plugin allows you to customize up to 10 notifications based on game chat messages. An example is the game chat message when your antifire is about to expire. With this plugin you can customize it so you will get a purple screen for example with optionally a text box stating 'ANTIFIRE' for example. Having up to 10 notifications allows you to finetune the notifications you get so you instantly know what is happening when you're afking. Another example is when your goading potion is about to expire that you want to be notified in a different way then when your antifire is about to expire. This plugin allows you to customize up to 10 different ways.

@@ -7,6 +7,7 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 import net.runelite.client.config.Notification;
+import net.runelite.client.config.Range;
 
 @ConfigGroup("enhancedchatnotifications")
 public interface EnhancedChatNotificationsConfig extends Config
@@ -38,6 +39,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return OverlayDisplayMode.SOLID_TIMED;
 	}
 
+	@Range(min = 1, max = 120)
 	@ConfigItem(
 			position = 3,
 			keyName = "overlayDuration",
@@ -120,11 +122,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 16,
 			keyName = "overlaySize1",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList1
 	)
 	default int overlaySize1()
@@ -216,11 +219,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 26,
 			keyName = "overlaySize2",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList2
 	)
 	default int overlaySize2()
@@ -312,11 +316,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 36,
 			keyName = "overlaySize3",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList3
 	)
 	default int overlaySize3()
@@ -408,11 +413,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 46,
 			keyName = "overlaySize4",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList4
 	)
 	default int overlaySize4()
@@ -504,11 +510,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 56,
 			keyName = "overlaySize5",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList5
 	)
 	default int overlaySize5()
@@ -600,11 +607,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 66,
 			keyName = "overlaySize6",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList6
 	)
 	default int overlaySize6()
@@ -696,11 +704,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 76,
 			keyName = "overlaySize7",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList7
 	)
 	default int overlaySize7()
@@ -792,11 +801,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 86,
 			keyName = "overlaySize8",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList8
 	)
 	default int overlaySize8()
@@ -888,11 +898,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 96,
 			keyName = "overlaySize9",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList9
 	)
 	default int overlaySize9()
@@ -984,11 +995,12 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Color.WHITE;
 	}
 
+	@Range(min = 1, max = 128)
 	@ConfigItem(
 			position = 106,
 			keyName = "overlaySize10",
 			name = "Text size",
-			description = "Font size of the overlay text.",
+			description = "Font size of the overlay text (between 1-128).",
 			section = notificationList10
 	)
 	default int overlaySize10()
