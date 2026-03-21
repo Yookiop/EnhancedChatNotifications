@@ -9,6 +9,12 @@ import net.runelite.client.config.Notification;
 @ConfigGroup("enhancedchatnotifications")
 public interface EnhancedChatNotificationsConfig extends Config
 {
+	// Shared description and name constants
+	String NAME_WORDS = "Highlight words";
+	String NAME_REGEX = "Highlight regex";
+	String DESC_WORDS = "Highlights the following words in chat, separated by commas.";
+	String DESC_REGEX = "Highlights the following regular expressions in chat, one per line.";
+
 	@ConfigItem(
 			position = 0,
 			keyName = "enableMultipleLists",
@@ -32,8 +38,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 11,
 			keyName = "highlightWords1",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList1
 	)
 	default String highlightWords1()
@@ -44,8 +50,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 12,
 			keyName = "highlightRegex1",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList1
 	)
 	default String highlightRegex1()
@@ -77,8 +83,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 21,
 			keyName = "highlightWords2",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList2
 	)
 	default String highlightWords2()
@@ -89,8 +95,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 22,
 			keyName = "highlightRegex2",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList2
 	)
 	default String highlightRegex2()
@@ -122,8 +128,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 31,
 			keyName = "highlightWords3",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList3
 	)
 	default String highlightWords3()
@@ -134,8 +140,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 32,
 			keyName = "highlightRegex3",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList3
 	)
 	default String highlightRegex3()
@@ -167,8 +173,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 41,
 			keyName = "highlightWords4",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList4
 	)
 	default String highlightWords4()
@@ -179,8 +185,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 42,
 			keyName = "highlightRegex4",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList4
 	)
 	default String highlightRegex4()
@@ -212,8 +218,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 51,
 			keyName = "highlightWords5",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList5
 	)
 	default String highlightWords5()
@@ -224,8 +230,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 52,
 			keyName = "highlightRegex5",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList5
 	)
 	default String highlightRegex5()
@@ -257,8 +263,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 61,
 			keyName = "highlightWords6",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList6
 	)
 	default String highlightWords6()
@@ -269,8 +275,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 62,
 			keyName = "highlightRegex6",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList6
 	)
 	default String highlightRegex6()
@@ -302,8 +308,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 71,
 			keyName = "highlightWords7",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList7
 	)
 	default String highlightWords7()
@@ -314,8 +320,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 72,
 			keyName = "highlightRegex7",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList7
 	)
 	default String highlightRegex7()
@@ -347,8 +353,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 81,
 			keyName = "highlightWords8",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList8
 	)
 	default String highlightWords8()
@@ -359,8 +365,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 82,
 			keyName = "highlightRegex8",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList8
 	)
 	default String highlightRegex8()
@@ -392,8 +398,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 91,
 			keyName = "highlightWords9",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList9
 	)
 	default String highlightWords9()
@@ -404,8 +410,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 92,
 			keyName = "highlightRegex9",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList9
 	)
 	default String highlightRegex9()
@@ -437,8 +443,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 101,
 			keyName = "highlightWords10",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList10
 	)
 	default String highlightWords10()
@@ -449,8 +455,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 102,
 			keyName = "highlightRegex10",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList10
 	)
 	default String highlightRegex10()
@@ -482,8 +488,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 111,
 			keyName = "highlightWords11",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList11
 	)
 	default String highlightWords11()
@@ -494,8 +500,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 112,
 			keyName = "highlightRegex11",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList11
 	)
 	default String highlightRegex11()
@@ -527,8 +533,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 121,
 			keyName = "highlightWords12",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList12
 	)
 	default String highlightWords12()
@@ -539,8 +545,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 122,
 			keyName = "highlightRegex12",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList12
 	)
 	default String highlightRegex12()
@@ -572,8 +578,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 131,
 			keyName = "highlightWords13",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList13
 	)
 	default String highlightWords13()
@@ -584,8 +590,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 132,
 			keyName = "highlightRegex13",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList13
 	)
 	default String highlightRegex13()
@@ -617,8 +623,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 141,
 			keyName = "highlightWords14",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList14
 	)
 	default String highlightWords14()
@@ -629,8 +635,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 142,
 			keyName = "highlightRegex14",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList14
 	)
 	default String highlightRegex14()
@@ -662,8 +668,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 151,
 			keyName = "highlightWords15",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList15
 	)
 	default String highlightWords15()
@@ -674,8 +680,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 152,
 			keyName = "highlightRegex15",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList15
 	)
 	default String highlightRegex15()
@@ -707,8 +713,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 161,
 			keyName = "highlightWords16",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList16
 	)
 	default String highlightWords16()
@@ -719,8 +725,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 162,
 			keyName = "highlightRegex16",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList16
 	)
 	default String highlightRegex16()
@@ -752,8 +758,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 171,
 			keyName = "highlightWords17",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList17
 	)
 	default String highlightWords17()
@@ -764,8 +770,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 172,
 			keyName = "highlightRegex17",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList17
 	)
 	default String highlightRegex17()
@@ -797,8 +803,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 181,
 			keyName = "highlightWords18",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList18
 	)
 	default String highlightWords18()
@@ -809,8 +815,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 182,
 			keyName = "highlightRegex18",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList18
 	)
 	default String highlightRegex18()
@@ -842,8 +848,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 191,
 			keyName = "highlightWords19",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList19
 	)
 	default String highlightWords19()
@@ -854,8 +860,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 192,
 			keyName = "highlightRegex19",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList19
 	)
 	default String highlightRegex19()
@@ -887,8 +893,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 201,
 			keyName = "highlightWords20",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList20
 	)
 	default String highlightWords20()
@@ -899,8 +905,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 202,
 			keyName = "highlightRegex20",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList20
 	)
 	default String highlightRegex20()
@@ -932,8 +938,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 211,
 			keyName = "highlightWords21",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList21
 	)
 	default String highlightWords21()
@@ -944,8 +950,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 212,
 			keyName = "highlightRegex21",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList21
 	)
 	default String highlightRegex21()
@@ -977,8 +983,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 221,
 			keyName = "highlightWords22",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList22
 	)
 	default String highlightWords22()
@@ -989,8 +995,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 222,
 			keyName = "highlightRegex22",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList22
 	)
 	default String highlightRegex22()
@@ -1022,8 +1028,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 231,
 			keyName = "highlightWords23",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList23
 	)
 	default String highlightWords23()
@@ -1034,8 +1040,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 232,
 			keyName = "highlightRegex23",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList23
 	)
 	default String highlightRegex23()
@@ -1067,8 +1073,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 241,
 			keyName = "highlightWords24",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList24
 	)
 	default String highlightWords24()
@@ -1079,8 +1085,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 242,
 			keyName = "highlightRegex24",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList24
 	)
 	default String highlightRegex24()
@@ -1112,8 +1118,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 251,
 			keyName = "highlightWords25",
-			name = "Highlight words",
-			description = "Highlights the following words in chat, separated by commas.",
+			name = NAME_WORDS,
+			description = DESC_WORDS,
 			section = highlightList25
 	)
 	default String highlightWords25()
@@ -1124,8 +1130,8 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 252,
 			keyName = "highlightRegex25",
-			name = "Highlight regex",
-			description = "Highlights the following regular expressions in chat, one per line.",
+			name = NAME_REGEX,
+			description = DESC_REGEX,
 			section = highlightList25
 	)
 	default String highlightRegex25()
