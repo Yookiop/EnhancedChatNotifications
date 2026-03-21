@@ -157,6 +157,13 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 		{
 			List<Pattern> patterns = new ArrayList<>();
 
+			Notification notification = getNotificationEnabled(i);
+			if (!notification.isEnabled() && getOverlayText(i).isEmpty())
+			{
+				allListPatterns.add(patterns);
+				continue;
+			}
+
 			String words = getNotificationWords(i);
 			if (words != null && !words.trim().isEmpty())
 			{
@@ -363,7 +370,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 		{
 			char c = str.charAt(i);
 			stringBuilder.append(Pattern.quote(String.valueOf(c)));
-			stringBuilder.append("(?:<col=[^>]*?>)?");
+			stringBuilder.append("(?:</?col[^>]*>)*");
 		}
 
 		return stringBuilder.toString();
