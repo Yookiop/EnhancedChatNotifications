@@ -11,11 +11,9 @@ Customizable screen and text notifications based on chat messages.
 ![Custom notification example](https://i.imgur.com/zKpygjP.png)
 
 ## Use case examples, fully customizable
-
-- Antifire expiring → purple screen + "ANTIFIRE" text
 - Goading potion expiring → red flashing screen
 - Receiving a valuable drop excluding runite ores → Gold solid screen
-- Receiving a notification when your prayer regeneration potion has won off → Blue screen
+- Prayer regeneration potion has won off → Blue screen + text 'Prayer regen'
 - Any game chat trigger → your own custom style
 
 ![Custom notification example](https://imgur.com/rI6c21f.png)
