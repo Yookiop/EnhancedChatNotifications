@@ -318,7 +318,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 				Notification notification = getNotificationEnabled(listNum);
 				sendNotification(notification, chatMessage);
 
-				if (!Notification.OFF.equals(notification))
+				if (notification.isEnabled())
 				{
 					String overlayText = getOverlayText(listNum);
 					if (!overlayText.isEmpty())
