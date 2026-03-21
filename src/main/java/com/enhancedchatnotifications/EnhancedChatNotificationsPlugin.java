@@ -40,12 +40,11 @@ import net.runelite.client.util.Text;
 @PluginDescriptor(
 		name = "Enhanced Chat Notifications",
 		description = "Enable multiple custom notifications based on chat messages",
-		tags = {"chat", "notifications"},
-		enabledByDefault = true
+		tags = {"chat", "notifications"}
 )
 public class EnhancedChatNotificationsPlugin extends Plugin
 {
-	static final int MAX_LISTS = 25;
+	static final int MAX_LISTS = 10;
 	private static final String CONFIG_GROUP = "enhancedchatnotifications";
 
 	@Inject

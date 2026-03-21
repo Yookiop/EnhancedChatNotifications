@@ -6,22 +6,19 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.time.Instant;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import javax.inject.Inject;
 import net.runelite.client.ui.overlay.Overlay;
 import net.runelite.client.ui.overlay.OverlayPosition;
 
 public class EnhancedChatNotificationsOverlay extends Overlay
 {
-	private final List<OverlayEntry> entries = new LinkedList<>();
-	private final EnhancedChatNotificationsConfig config;
+	private final List<OverlayEntry> entries = new CopyOnWriteArrayList<>();
 
 	@Inject
-	private EnhancedChatNotificationsOverlay(EnhancedChatNotificationsConfig config)
+	private EnhancedChatNotificationsOverlay()
 	{
-		this.config = config;
 		setPosition(OverlayPosition.TOP_CENTER);
 	}
 
@@ -41,7 +38,8 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 
 		boolean flash = (mode == OverlayDisplayMode.FLASH_TIMED);
 		boolean untilCancelled = (mode == OverlayDisplayMode.SOLID_UNTIL_CANCELLED);
-		entries.add(new OverlayEntry(listIndex, text, color, bgColor, fontSize, expireTime, flash, untilCancelled));
+		Font font = new Font(Font.SANS_SERIF, Font.BOLD, fontSize);
+		entries.add(new OverlayEntry(listIndex, text, color, bgColor, font, expireTime, flash, untilCancelled));
 	}
 
 	public void cancelEntry(int listIndex)
@@ -75,18 +73,12 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 
 		Instant now = Instant.now();
 		long currentMs = System.currentTimeMillis();
-		Iterator<OverlayEntry> it = entries.iterator();
+		entries.removeIf(e -> now.isAfter(e.expireTime));
 		int y = 0;
 		int maxWidth = 0;
 
-		while (it.hasNext())
+		for (OverlayEntry entry : entries)
 		{
-			OverlayEntry entry = it.next();
-			if (now.isAfter(entry.expireTime))
-			{
-				it.remove();
-				continue;
-			}
 
 			// For flashing entries, skip rendering every other 500ms cycle
 			if (entry.flash && (currentMs / 500) % 2 == 0)
@@ -94,8 +86,7 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 				continue;
 			}
 
-			Font font = new Font(Font.SANS_SERIF, Font.BOLD, entry.fontSize);
-			graphics.setFont(font);
+			graphics.setFont(entry.font);
 			FontMetrics fm = graphics.getFontMetrics();
 
 			int textWidth = fm.stringWidth(entry.text);
@@ -128,19 +119,19 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 		final String text;
 		final Color color;
 		final Color bgColor;
-		final int fontSize;
+		final Font font;
 		final Instant expireTime;
 		final boolean flash;
 		final boolean untilCancelled;
 		final Instant addedAt;
 
-		OverlayEntry(int listIndex, String text, Color color, Color bgColor, int fontSize, Instant expireTime, boolean flash, boolean untilCancelled)
+		OverlayEntry(int listIndex, String text, Color color, Color bgColor, Font font, Instant expireTime, boolean flash, boolean untilCancelled)
 		{
 			this.listIndex = listIndex;
 			this.text = text;
 			this.color = color;
 			this.bgColor = bgColor;
-			this.fontSize = fontSize;
+			this.font = font;
 			this.expireTime = expireTime;
 			this.flash = flash;
 			this.untilCancelled = untilCancelled;
