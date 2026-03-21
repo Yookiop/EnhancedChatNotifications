@@ -6,7 +6,7 @@ Customize chat-based notifications with screen and text notifications.
 
 - **Custom Notifications**: Configure up to 10 unique notifications based on game chat messages. Below an example with a purple screen + Antifire text for the chat message that the antifire is about to expire.
 
-![Custom notification example](https://imgur.com/a/crTindV)
+![Custom notification example](https://imgur.com/zKpygjP)
 
 - **Text Overlay**: Optionally display a text box (e.g. "ANTIFIRE") so you know exactly which alert fired if you want additional information besides the color you choose.
 
