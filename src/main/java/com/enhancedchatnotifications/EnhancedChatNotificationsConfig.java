@@ -15,7 +15,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	String DESC_WORDS = "Notify based on the following words in chat, separated by commas.";
 	String DESC_REGEX = "Use regex for more advanced notifications (separated by enter). Example to notify on all valuable drops except coins and runite ore: Valuable drop: (?!.*(x Coins|Runite ore)).";
 
-	// ==================== Notification list 1 ====================
+	// Notification list 1
 	@ConfigSection(
 			name = "Notification list 1",
 			description = "Notification list 1 settings.",
@@ -60,7 +60,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 2 ====================
+	// Notification list 2
 	@ConfigSection(
 			name = "Notification list 2",
 			description = "Notification list 2 settings.",
@@ -105,7 +105,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 3 ====================
+	// Notification list 3
 	@ConfigSection(
 			name = "Notification list 3",
 			description = "Notification list 3 settings.",
@@ -150,7 +150,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 4 ====================
+	// Notification list 4
 	@ConfigSection(
 			name = "Notification list 4",
 			description = "Notification list 4 settings.",
@@ -195,7 +195,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 5 ====================
+	// Notification list 5
 	@ConfigSection(
 			name = "Notification list 5",
 			description = "Notification list 5 settings.",
@@ -240,7 +240,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 6 ====================
+	// Notification list 6
 	@ConfigSection(
 			name = "Notification list 6",
 			description = "Notification list 6 settings.",
@@ -285,7 +285,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 7 ====================
+	// Notification list 7
 	@ConfigSection(
 			name = "Notification list 7",
 			description = "Notification list 7 settings.",
@@ -330,7 +330,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 8 ====================
+	// Notification list 8
 	@ConfigSection(
 			name = "Notification list 8",
 			description = "Notification list 8 settings.",
@@ -375,7 +375,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 9 ====================
+	// Notification list 9
 	@ConfigSection(
 			name = "Notification list 9",
 			description = "Notification list 9 settings.",
@@ -420,7 +420,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 10 ====================
+	// Notification list 10
 	@ConfigSection(
 			name = "Notification list 10",
 			description = "Notification list 10 settings.",
@@ -465,7 +465,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 11 ====================
+	// Notification list 11
 	@ConfigSection(
 			name = "Notification list 11",
 			description = "Notification list 11 settings.",
@@ -510,7 +510,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 12 ====================
+	// Notification list 12
 	@ConfigSection(
 			name = "Notification list 12",
 			description = "Notification list 12 settings.",
@@ -555,7 +555,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 13 ====================
+	// Notification list 13
 	@ConfigSection(
 			name = "Notification list 13",
 			description = "Notification list 13 settings.",
@@ -600,7 +600,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 14 ====================
+	// Notification list 14
 	@ConfigSection(
 			name = "Notification list 14",
 			description = "Notification list 14 settings.",
@@ -645,7 +645,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 15 ====================
+	// Notification list 15
 	@ConfigSection(
 			name = "Notification list 15",
 			description = "Notification list 15 settings.",
@@ -690,7 +690,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 16 ====================
+	// Notification list 16
 	@ConfigSection(
 			name = "Notification list 16",
 			description = "Notification list 16 settings.",
@@ -735,7 +735,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 17 ====================
+	// Notification list 17
 	@ConfigSection(
 			name = "Notification list 17",
 			description = "Notification list 17 settings.",
@@ -780,7 +780,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 18 ====================
+	// Notification list 18
 	@ConfigSection(
 			name = "Notification list 18",
 			description = "Notification list 18 settings.",
@@ -825,7 +825,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 19 ====================
+	// Notification list 19
 	@ConfigSection(
 			name = "Notification list 19",
 			description = "Notification list 19 settings.",
@@ -870,7 +870,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 20 ====================
+	// Notification list 20
 	@ConfigSection(
 			name = "Notification list 20",
 			description = "Notification list 20 settings.",
@@ -915,7 +915,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 21 ====================
+	// Notification list 21
 	@ConfigSection(
 			name = "Notification list 21",
 			description = "Notification list 21 settings.",
@@ -960,7 +960,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 22 ====================
+	// Notification list 22
 	@ConfigSection(
 			name = "Notification list 22",
 			description = "Notification list 22 settings.",
@@ -1005,7 +1005,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 23 ====================
+	// Notification list 23
 	@ConfigSection(
 			name = "Notification list 23",
 			description = "Notification list 23 settings.",
@@ -1050,7 +1050,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 24 ====================
+	// Notification list 24
 	@ConfigSection(
 			name = "Notification list 24",
 			description = "Notification list 24 settings.",
@@ -1095,7 +1095,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return Notification.OFF;
 	}
 
-	// ==================== Notification list 25 ====================
+	// Notification list 25
 	@ConfigSection(
 			name = "Notification list 25",
 			description = "Notification list 25 settings.",
