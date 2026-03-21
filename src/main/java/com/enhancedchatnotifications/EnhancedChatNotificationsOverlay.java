@@ -25,7 +25,7 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 		setPosition(OverlayPosition.TOP_CENTER);
 	}
 
-	public void addEntry(int listIndex, String text, Color color, int fontSize, OverlayDisplayMode mode, int durationSeconds)
+	public void addEntry(int listIndex, String text, Color color, Color bgColor, int fontSize, OverlayDisplayMode mode, int durationSeconds)
 	{
 		entries.removeIf(e -> e.listIndex == listIndex);
 
@@ -41,7 +41,7 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 
 		boolean flash = (mode == OverlayDisplayMode.FLASH_TIMED);
 		boolean untilCancelled = (mode == OverlayDisplayMode.SOLID_UNTIL_CANCELLED);
-		entries.add(new OverlayEntry(listIndex, text, color, fontSize, expireTime, flash, untilCancelled));
+		entries.add(new OverlayEntry(listIndex, text, color, bgColor, fontSize, expireTime, flash, untilCancelled));
 	}
 
 	public void cancelEntry(int listIndex)
@@ -100,17 +100,18 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 
 			int textWidth = fm.stringWidth(entry.text);
 			int textHeight = fm.getHeight();
+			int padding = 4;
 
-			// Draw shadow
-			graphics.setColor(Color.BLACK);
-			graphics.drawString(entry.text, 1, y + fm.getAscent() + 1);
+			// Draw background
+			graphics.setColor(entry.bgColor);
+			graphics.fillRect(-padding, y, textWidth + padding * 2, textHeight + 2);
 
 			// Draw text
 			graphics.setColor(entry.color);
 			graphics.drawString(entry.text, 0, y + fm.getAscent());
 
 			y += textHeight + 4;
-			maxWidth = Math.max(maxWidth, textWidth);
+			maxWidth = Math.max(maxWidth, textWidth + padding * 2);
 		}
 
 		if (y == 0)
@@ -126,17 +127,19 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 		final int listIndex;
 		final String text;
 		final Color color;
+		final Color bgColor;
 		final int fontSize;
 		final Instant expireTime;
 		final boolean flash;
 		final boolean untilCancelled;
 		final Instant addedAt;
 
-		OverlayEntry(int listIndex, String text, Color color, int fontSize, Instant expireTime, boolean flash, boolean untilCancelled)
+		OverlayEntry(int listIndex, String text, Color color, Color bgColor, int fontSize, Instant expireTime, boolean flash, boolean untilCancelled)
 		{
 			this.listIndex = listIndex;
 			this.text = text;
 			this.color = color;
+			this.bgColor = bgColor;
 			this.fontSize = fontSize;
 			this.expireTime = expireTime;
 			this.flash = flash;

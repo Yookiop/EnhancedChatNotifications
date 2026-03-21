@@ -98,7 +98,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 14,
 			keyName = "overlayText1",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList1
 	)
@@ -111,7 +111,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 15,
 			keyName = "overlayColor1",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList1
 	)
@@ -123,13 +123,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 16,
 			keyName = "overlaySize1",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList1
 	)
 	default int overlaySize1()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 17,
+			keyName = "overlayBgColor1",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList1
+	)
+	default Color overlayBgColor1()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 2
@@ -180,7 +194,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 24,
 			keyName = "overlayText2",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList2
 	)
@@ -193,7 +207,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 25,
 			keyName = "overlayColor2",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList2
 	)
@@ -205,13 +219,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 26,
 			keyName = "overlaySize2",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList2
 	)
 	default int overlaySize2()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 27,
+			keyName = "overlayBgColor2",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList2
+	)
+	default Color overlayBgColor2()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 3
@@ -262,7 +290,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 34,
 			keyName = "overlayText3",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList3
 	)
@@ -275,7 +303,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 35,
 			keyName = "overlayColor3",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList3
 	)
@@ -287,13 +315,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 36,
 			keyName = "overlaySize3",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList3
 	)
 	default int overlaySize3()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 37,
+			keyName = "overlayBgColor3",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList3
+	)
+	default Color overlayBgColor3()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 4
@@ -344,7 +386,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 44,
 			keyName = "overlayText4",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList4
 	)
@@ -357,7 +399,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 45,
 			keyName = "overlayColor4",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList4
 	)
@@ -369,13 +411,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 46,
 			keyName = "overlaySize4",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList4
 	)
 	default int overlaySize4()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 47,
+			keyName = "overlayBgColor4",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList4
+	)
+	default Color overlayBgColor4()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 5
@@ -426,7 +482,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 54,
 			keyName = "overlayText5",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList5
 	)
@@ -439,7 +495,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 55,
 			keyName = "overlayColor5",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList5
 	)
@@ -451,13 +507,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 56,
 			keyName = "overlaySize5",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList5
 	)
 	default int overlaySize5()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 57,
+			keyName = "overlayBgColor5",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList5
+	)
+	default Color overlayBgColor5()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 6
@@ -508,7 +578,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 64,
 			keyName = "overlayText6",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList6
 	)
@@ -521,7 +591,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 65,
 			keyName = "overlayColor6",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList6
 	)
@@ -533,13 +603,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 66,
 			keyName = "overlaySize6",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList6
 	)
 	default int overlaySize6()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 67,
+			keyName = "overlayBgColor6",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList6
+	)
+	default Color overlayBgColor6()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 7
@@ -590,7 +674,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 74,
 			keyName = "overlayText7",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList7
 	)
@@ -603,7 +687,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 75,
 			keyName = "overlayColor7",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList7
 	)
@@ -615,13 +699,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 76,
 			keyName = "overlaySize7",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList7
 	)
 	default int overlaySize7()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 77,
+			keyName = "overlayBgColor7",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList7
+	)
+	default Color overlayBgColor7()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 8
@@ -672,7 +770,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 84,
 			keyName = "overlayText8",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList8
 	)
@@ -685,7 +783,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 85,
 			keyName = "overlayColor8",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList8
 	)
@@ -697,13 +795,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 86,
 			keyName = "overlaySize8",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList8
 	)
 	default int overlaySize8()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 87,
+			keyName = "overlayBgColor8",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList8
+	)
+	default Color overlayBgColor8()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 9
@@ -754,7 +866,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 94,
 			keyName = "overlayText9",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList9
 	)
@@ -767,7 +879,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 95,
 			keyName = "overlayColor9",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList9
 	)
@@ -779,13 +891,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 96,
 			keyName = "overlaySize9",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList9
 	)
 	default int overlaySize9()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 97,
+			keyName = "overlayBgColor9",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList9
+	)
+	default Color overlayBgColor9()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 10
@@ -836,7 +962,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 104,
 			keyName = "overlayText10",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList10
 	)
@@ -849,7 +975,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 105,
 			keyName = "overlayColor10",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList10
 	)
@@ -861,13 +987,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 106,
 			keyName = "overlaySize10",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList10
 	)
 	default int overlaySize10()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 107,
+			keyName = "overlayBgColor10",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList10
+	)
+	default Color overlayBgColor10()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 11
@@ -918,7 +1058,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 114,
 			keyName = "overlayText11",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList11
 	)
@@ -931,7 +1071,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 115,
 			keyName = "overlayColor11",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList11
 	)
@@ -943,13 +1083,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 116,
 			keyName = "overlaySize11",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList11
 	)
 	default int overlaySize11()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 117,
+			keyName = "overlayBgColor11",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList11
+	)
+	default Color overlayBgColor11()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 12
@@ -1000,7 +1154,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 124,
 			keyName = "overlayText12",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList12
 	)
@@ -1013,7 +1167,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 125,
 			keyName = "overlayColor12",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList12
 	)
@@ -1025,13 +1179,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 126,
 			keyName = "overlaySize12",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList12
 	)
 	default int overlaySize12()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 127,
+			keyName = "overlayBgColor12",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList12
+	)
+	default Color overlayBgColor12()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 13
@@ -1082,7 +1250,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 134,
 			keyName = "overlayText13",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList13
 	)
@@ -1095,7 +1263,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 135,
 			keyName = "overlayColor13",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList13
 	)
@@ -1107,13 +1275,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 136,
 			keyName = "overlaySize13",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList13
 	)
 	default int overlaySize13()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 137,
+			keyName = "overlayBgColor13",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList13
+	)
+	default Color overlayBgColor13()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 14
@@ -1164,7 +1346,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 144,
 			keyName = "overlayText14",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList14
 	)
@@ -1177,7 +1359,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 145,
 			keyName = "overlayColor14",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList14
 	)
@@ -1189,13 +1371,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 146,
 			keyName = "overlaySize14",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList14
 	)
 	default int overlaySize14()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 147,
+			keyName = "overlayBgColor14",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList14
+	)
+	default Color overlayBgColor14()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 15
@@ -1246,7 +1442,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 154,
 			keyName = "overlayText15",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList15
 	)
@@ -1259,7 +1455,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 155,
 			keyName = "overlayColor15",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList15
 	)
@@ -1271,13 +1467,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 156,
 			keyName = "overlaySize15",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList15
 	)
 	default int overlaySize15()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 157,
+			keyName = "overlayBgColor15",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList15
+	)
+	default Color overlayBgColor15()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 16
@@ -1328,7 +1538,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 164,
 			keyName = "overlayText16",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList16
 	)
@@ -1341,7 +1551,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 165,
 			keyName = "overlayColor16",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList16
 	)
@@ -1353,13 +1563,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 166,
 			keyName = "overlaySize16",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList16
 	)
 	default int overlaySize16()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 167,
+			keyName = "overlayBgColor16",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList16
+	)
+	default Color overlayBgColor16()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 17
@@ -1410,7 +1634,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 174,
 			keyName = "overlayText17",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList17
 	)
@@ -1423,7 +1647,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 175,
 			keyName = "overlayColor17",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList17
 	)
@@ -1435,13 +1659,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 176,
 			keyName = "overlaySize17",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList17
 	)
 	default int overlaySize17()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 177,
+			keyName = "overlayBgColor17",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList17
+	)
+	default Color overlayBgColor17()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 18
@@ -1492,7 +1730,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 184,
 			keyName = "overlayText18",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList18
 	)
@@ -1505,7 +1743,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 185,
 			keyName = "overlayColor18",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList18
 	)
@@ -1517,13 +1755,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 186,
 			keyName = "overlaySize18",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList18
 	)
 	default int overlaySize18()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 187,
+			keyName = "overlayBgColor18",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList18
+	)
+	default Color overlayBgColor18()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 19
@@ -1574,7 +1826,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 194,
 			keyName = "overlayText19",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList19
 	)
@@ -1587,7 +1839,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 195,
 			keyName = "overlayColor19",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList19
 	)
@@ -1599,13 +1851,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 196,
 			keyName = "overlaySize19",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList19
 	)
 	default int overlaySize19()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 197,
+			keyName = "overlayBgColor19",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList19
+	)
+	default Color overlayBgColor19()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 20
@@ -1656,7 +1922,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 204,
 			keyName = "overlayText20",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList20
 	)
@@ -1669,7 +1935,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 205,
 			keyName = "overlayColor20",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList20
 	)
@@ -1681,13 +1947,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 206,
 			keyName = "overlaySize20",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList20
 	)
 	default int overlaySize20()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 207,
+			keyName = "overlayBgColor20",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList20
+	)
+	default Color overlayBgColor20()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 21
@@ -1738,7 +2018,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 214,
 			keyName = "overlayText21",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList21
 	)
@@ -1751,7 +2031,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 215,
 			keyName = "overlayColor21",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList21
 	)
@@ -1763,13 +2043,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 216,
 			keyName = "overlaySize21",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList21
 	)
 	default int overlaySize21()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 217,
+			keyName = "overlayBgColor21",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList21
+	)
+	default Color overlayBgColor21()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 22
@@ -1820,7 +2114,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 224,
 			keyName = "overlayText22",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList22
 	)
@@ -1833,7 +2127,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 225,
 			keyName = "overlayColor22",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList22
 	)
@@ -1845,13 +2139,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 226,
 			keyName = "overlaySize22",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList22
 	)
 	default int overlaySize22()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 227,
+			keyName = "overlayBgColor22",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList22
+	)
+	default Color overlayBgColor22()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 23
@@ -1902,7 +2210,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 234,
 			keyName = "overlayText23",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList23
 	)
@@ -1915,7 +2223,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 235,
 			keyName = "overlayColor23",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList23
 	)
@@ -1927,13 +2235,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 236,
 			keyName = "overlaySize23",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList23
 	)
 	default int overlaySize23()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 237,
+			keyName = "overlayBgColor23",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList23
+	)
+	default Color overlayBgColor23()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 24
@@ -1984,7 +2306,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 244,
 			keyName = "overlayText24",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList24
 	)
@@ -1997,7 +2319,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 245,
 			keyName = "overlayColor24",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList24
 	)
@@ -2009,13 +2331,27 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 246,
 			keyName = "overlaySize24",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList24
 	)
 	default int overlaySize24()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 247,
+			keyName = "overlayBgColor24",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList24
+	)
+	default Color overlayBgColor24()
+	{
+		return Color.BLACK;
 	}
 
 	// Notification list 25
@@ -2066,7 +2402,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 254,
 			keyName = "overlayText25",
-			name = "Overlay text",
+			name = "Text",
 			description = "Text to show on screen when this notification triggers. Leave empty to disable.",
 			section = notificationList25
 	)
@@ -2079,7 +2415,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 255,
 			keyName = "overlayColor25",
-			name = "Overlay text color",
+			name = "Text color",
 			description = "Color of the overlay text.",
 			section = notificationList25
 	)
@@ -2091,12 +2427,26 @@ public interface EnhancedChatNotificationsConfig extends Config
 	@ConfigItem(
 			position = 256,
 			keyName = "overlaySize25",
-			name = "Overlay text size",
+			name = "Text size",
 			description = "Font size of the overlay text.",
 			section = notificationList25
 	)
 	default int overlaySize25()
 	{
 		return 16;
+	}
+
+
+	@Alpha
+	@ConfigItem(
+			position = 257,
+			keyName = "overlayBgColor25",
+			name = "Background color",
+			description = "Background color behind the overlay text.",
+			section = notificationList25
+	)
+	default Color overlayBgColor25()
+	{
+		return Color.BLACK;
 	}
 }

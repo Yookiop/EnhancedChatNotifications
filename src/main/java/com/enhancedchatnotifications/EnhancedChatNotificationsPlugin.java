@@ -225,6 +225,12 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 		return s != null ? s : 16;
 	}
 
+	private Color getOverlayBgColor(int list)
+	{
+		Color c = configManager.getConfiguration(CONFIG_GROUP, "overlayBgColor" + list, Color.class);
+		return c != null ? c : Color.BLACK;
+	}
+
 	private static Pattern compilePattern(String pattern)
 	{
 		try
@@ -309,12 +315,16 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 			if (matchesThisList)
 			{
 				int listNum = listIdx + 1;
-				sendNotification(getNotificationEnabled(listNum), chatMessage);
+				Notification notification = getNotificationEnabled(listNum);
+				sendNotification(notification, chatMessage);
 
-				String overlayText = getOverlayText(listNum);
-				if (!overlayText.isEmpty())
+				if (!Notification.OFF.equals(notification))
 				{
-					overlay.addEntry(listNum, overlayText, getOverlayColor(listNum), getOverlaySize(listNum), config.overlayDisplayMode(), config.overlayDuration());
+					String overlayText = getOverlayText(listNum);
+					if (!overlayText.isEmpty())
+					{
+						overlay.addEntry(listNum, overlayText, getOverlayColor(listNum), getOverlayBgColor(listNum), getOverlaySize(listNum), config.overlayDisplayMode(), config.overlayDuration());
+					}
 				}
 			}
 		}
