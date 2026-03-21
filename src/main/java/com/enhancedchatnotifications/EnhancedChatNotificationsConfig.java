@@ -1,4 +1,4 @@
-﻿package com.enhancedchatnotifications;
+package com.enhancedchatnotifications;
 
 import java.awt.Color;
 import net.runelite.client.config.Alpha;
