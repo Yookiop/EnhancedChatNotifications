@@ -31,8 +31,8 @@ import net.runelite.client.util.Text;
 @Slf4j
 @PluginDescriptor(
 		name = "Enhanced Chat Notifications",
-		description = "Multiple highlight lists with individual notification settings",
-		tags = {"chat", "notifications", "highlight"},
+		description = "Enable multiple custom notifications based on chat messages",
+		tags = {"chat", "notifications"},
 		enabledByDefault = true
 )
 public class EnhancedChatNotificationsPlugin extends Plugin
@@ -67,7 +67,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 	@Override
 	protected void startUp()
 	{
-		updateHighlights();
+		updateNotifications();
 	}
 
 	@Override
@@ -75,27 +75,26 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 	{
 		allListPatterns.clear();
 	}
-
 	@Subscribe
 	public void onConfigChanged(ConfigChanged event)
 	{
 		if (event.getGroup().equals(CONFIG_GROUP))
 		{
-			updateHighlights();
+			updateNotifications();
 		}
 	}
 
-	private void updateHighlights()
+	private void updateNotifications()
 	{
 		allListPatterns.clear();
 
-		int listCount = config.enableMultipleLists() ? MAX_LISTS : 1;
+		int listCount = MAX_LISTS;
 
 		for (int i = 1; i <= listCount; i++)
 		{
 			List<Pattern> patterns = new ArrayList<>();
 
-			String words = getHighlightWords(i);
+			String words = getNotificationWords(i);
 			if (words != null && !words.trim().isEmpty())
 			{
 				List<String> items = Text.fromCSV(words);
@@ -110,7 +109,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 				}
 			}
 
-			String regex = getHighlightRegex(i);
+			String regex = getNotificationRegex(i);
 			if (regex != null && !regex.trim().isEmpty())
 			{
 				Splitter.on("\n")
@@ -126,21 +125,21 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 		}
 	}
 
-	private String getHighlightWords(int list)
+	private String getNotificationWords(int list)
 	{
-		String val = configManager.getConfiguration(CONFIG_GROUP, "highlightWords" + list);
+		String val = configManager.getConfiguration(CONFIG_GROUP, "notificationWords" + list);
 		return val != null ? val : "";
 	}
 
-	private String getHighlightRegex(int list)
+	private String getNotificationRegex(int list)
 	{
-		String val = configManager.getConfiguration(CONFIG_GROUP, "highlightRegex" + list);
+		String val = configManager.getConfiguration(CONFIG_GROUP, "notificationRegex" + list);
 		return val != null ? val : "";
 	}
 
-	private Notification getNotifyOnHighlight(int list)
+	private Notification getNotificationEnabled(int list)
 	{
-		Notification n = configManager.getConfiguration(CONFIG_GROUP, "notifyOnHighlight" + list, Notification.class);
+		Notification n = configManager.getConfiguration(CONFIG_GROUP, "notificationEnabled" + list, Notification.class);
 		return n != null ? n : Notification.OFF;
 	}
 
@@ -227,7 +226,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 
 			if (matchesThisList)
 			{
-				sendNotification(getNotifyOnHighlight(listIdx + 1), chatMessage);
+				sendNotification(getNotificationEnabled(listIdx + 1), chatMessage);
 			}
 		}
 

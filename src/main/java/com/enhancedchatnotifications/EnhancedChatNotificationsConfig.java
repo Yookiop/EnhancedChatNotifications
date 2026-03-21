@@ -10,1143 +10,1132 @@ import net.runelite.client.config.Notification;
 public interface EnhancedChatNotificationsConfig extends Config
 {
 	// Shared description and name constants
-	String NAME_WORDS = "Highlight words";
-	String NAME_REGEX = "Highlight regex";
-	String DESC_WORDS = "Highlights the following words in chat, separated by commas.";
-	String DESC_REGEX = "Highlights the following regular expressions in chat, one per line.";
+	String NAME_WORDS = "Notify based on words in text message";
+	String NAME_REGEX = "Notify based on regex";
+	String DESC_WORDS = "Notify based on the following words in chat, separated by commas.";
+	String DESC_REGEX = "Use regex for more advanced notifications (separated by enter). Example to notify on all valuable drops except coins and runite ore: Valuable drop: (?!.*(x Coins|Runite ore)).";
 
-	@ConfigItem(
-			position = 0,
-			keyName = "enableMultipleLists",
-			name = "Enable multiple highlight lists",
-			description = "When enabled you can customize a notification for each highlight list."
-	)
-	default boolean enableMultipleLists()
-	{
-		return false;
-	}
-
-	// ==================== Highlight list 1 ====================
+	// ==================== Notification list 1 ====================
 	@ConfigSection(
-			name = "Highlight list 1",
-			description = "Highlight list 1 settings.",
+			name = "Notification list 1",
+			description = "Notification list 1 settings.",
 			position = 10,
 			closedByDefault = false
 	)
-	String highlightList1 = "highlightList1";
+	String notificationList1 = "notificationList1";
 
 	@ConfigItem(
 			position = 11,
-			keyName = "highlightWords1",
+			keyName = "notificationWords1",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList1
+			section = notificationList1
 	)
-	default String highlightWords1()
+	default String notificationWords1()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 12,
-			keyName = "highlightRegex1",
+			keyName = "notificationRegex1",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList1
+			section = notificationList1
 	)
-	default String highlightRegex1()
+	default String notificationRegex1()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 13,
-			keyName = "notifyOnHighlight1",
-			name = "Notify on highlight list 1",
-			description = "Notifies you whenever a highlighted word in list 1 is matched.",
-			section = highlightList1
+			keyName = "notificationEnabled1",
+			name = "Enable notification list 1",
+			description = "",
+			section = notificationList1
 	)
-	default Notification notifyOnHighlight1()
+	default Notification notificationEnabled1()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 2 ====================
+	// ==================== Notification list 2 ====================
 	@ConfigSection(
-			name = "Highlight list 2",
-			description = "Highlight list 2 settings.",
+			name = "Notification list 2",
+			description = "Notification list 2 settings.",
 			position = 20,
 			closedByDefault = true
 	)
-	String highlightList2 = "highlightList2";
+	String notificationList2 = "notificationList2";
 
 	@ConfigItem(
 			position = 21,
-			keyName = "highlightWords2",
+			keyName = "notificationWords2",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList2
+			section = notificationList2
 	)
-	default String highlightWords2()
+	default String notificationWords2()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 22,
-			keyName = "highlightRegex2",
+			keyName = "notificationRegex2",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList2
+			section = notificationList2
 	)
-	default String highlightRegex2()
+	default String notificationRegex2()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 23,
-			keyName = "notifyOnHighlight2",
-			name = "Notify on highlight list 2",
-			description = "Notifies you whenever a highlighted word in list 2 is matched.",
-			section = highlightList2
+			keyName = "notificationEnabled2",
+			name = "Enable notification list 2",
+			description = "",
+			section = notificationList2
 	)
-	default Notification notifyOnHighlight2()
+	default Notification notificationEnabled2()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 3 ====================
+	// ==================== Notification list 3 ====================
 	@ConfigSection(
-			name = "Highlight list 3",
-			description = "Highlight list 3 settings.",
+			name = "Notification list 3",
+			description = "Notification list 3 settings.",
 			position = 30,
 			closedByDefault = true
 	)
-	String highlightList3 = "highlightList3";
+	String notificationList3 = "notificationList3";
 
 	@ConfigItem(
 			position = 31,
-			keyName = "highlightWords3",
+			keyName = "notificationWords3",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList3
+			section = notificationList3
 	)
-	default String highlightWords3()
+	default String notificationWords3()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 32,
-			keyName = "highlightRegex3",
+			keyName = "notificationRegex3",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList3
+			section = notificationList3
 	)
-	default String highlightRegex3()
+	default String notificationRegex3()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 33,
-			keyName = "notifyOnHighlight3",
-			name = "Notify on highlight list 3",
-			description = "Notifies you whenever a highlighted word in list 3 is matched.",
-			section = highlightList3
+			keyName = "notificationEnabled3",
+			name = "Enable notification list 3",
+			description = "",
+			section = notificationList3
 	)
-	default Notification notifyOnHighlight3()
+	default Notification notificationEnabled3()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 4 ====================
+	// ==================== Notification list 4 ====================
 	@ConfigSection(
-			name = "Highlight list 4",
-			description = "Highlight list 4 settings.",
+			name = "Notification list 4",
+			description = "Notification list 4 settings.",
 			position = 40,
 			closedByDefault = true
 	)
-	String highlightList4 = "highlightList4";
+	String notificationList4 = "notificationList4";
 
 	@ConfigItem(
 			position = 41,
-			keyName = "highlightWords4",
+			keyName = "notificationWords4",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList4
+			section = notificationList4
 	)
-	default String highlightWords4()
+	default String notificationWords4()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 42,
-			keyName = "highlightRegex4",
+			keyName = "notificationRegex4",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList4
+			section = notificationList4
 	)
-	default String highlightRegex4()
+	default String notificationRegex4()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 43,
-			keyName = "notifyOnHighlight4",
-			name = "Notify on highlight list 4",
-			description = "Notifies you whenever a highlighted word in list 4 is matched.",
-			section = highlightList4
+			keyName = "notificationEnabled4",
+			name = "Enable notification list 4",
+			description = "",
+			section = notificationList4
 	)
-	default Notification notifyOnHighlight4()
+	default Notification notificationEnabled4()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 5 ====================
+	// ==================== Notification list 5 ====================
 	@ConfigSection(
-			name = "Highlight list 5",
-			description = "Highlight list 5 settings.",
+			name = "Notification list 5",
+			description = "Notification list 5 settings.",
 			position = 50,
 			closedByDefault = true
 	)
-	String highlightList5 = "highlightList5";
+	String notificationList5 = "notificationList5";
 
 	@ConfigItem(
 			position = 51,
-			keyName = "highlightWords5",
+			keyName = "notificationWords5",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList5
+			section = notificationList5
 	)
-	default String highlightWords5()
+	default String notificationWords5()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 52,
-			keyName = "highlightRegex5",
+			keyName = "notificationRegex5",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList5
+			section = notificationList5
 	)
-	default String highlightRegex5()
+	default String notificationRegex5()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 53,
-			keyName = "notifyOnHighlight5",
-			name = "Notify on highlight list 5",
-			description = "Notifies you whenever a highlighted word in list 5 is matched.",
-			section = highlightList5
+			keyName = "notificationEnabled5",
+			name = "Enable notification list 5",
+			description = "",
+			section = notificationList5
 	)
-	default Notification notifyOnHighlight5()
+	default Notification notificationEnabled5()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 6 ====================
+	// ==================== Notification list 6 ====================
 	@ConfigSection(
-			name = "Highlight list 6",
-			description = "Highlight list 6 settings.",
+			name = "Notification list 6",
+			description = "Notification list 6 settings.",
 			position = 60,
 			closedByDefault = true
 	)
-	String highlightList6 = "highlightList6";
+	String notificationList6 = "notificationList6";
 
 	@ConfigItem(
 			position = 61,
-			keyName = "highlightWords6",
+			keyName = "notificationWords6",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList6
+			section = notificationList6
 	)
-	default String highlightWords6()
+	default String notificationWords6()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 62,
-			keyName = "highlightRegex6",
+			keyName = "notificationRegex6",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList6
+			section = notificationList6
 	)
-	default String highlightRegex6()
+	default String notificationRegex6()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 63,
-			keyName = "notifyOnHighlight6",
-			name = "Notify on highlight list 6",
-			description = "Notifies you whenever a highlighted word in list 6 is matched.",
-			section = highlightList6
+			keyName = "notificationEnabled6",
+			name = "Enable notification list 6",
+			description = "",
+			section = notificationList6
 	)
-	default Notification notifyOnHighlight6()
+	default Notification notificationEnabled6()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 7 ====================
+	// ==================== Notification list 7 ====================
 	@ConfigSection(
-			name = "Highlight list 7",
-			description = "Highlight list 7 settings.",
+			name = "Notification list 7",
+			description = "Notification list 7 settings.",
 			position = 70,
 			closedByDefault = true
 	)
-	String highlightList7 = "highlightList7";
+	String notificationList7 = "notificationList7";
 
 	@ConfigItem(
 			position = 71,
-			keyName = "highlightWords7",
+			keyName = "notificationWords7",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList7
+			section = notificationList7
 	)
-	default String highlightWords7()
+	default String notificationWords7()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 72,
-			keyName = "highlightRegex7",
+			keyName = "notificationRegex7",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList7
+			section = notificationList7
 	)
-	default String highlightRegex7()
+	default String notificationRegex7()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 73,
-			keyName = "notifyOnHighlight7",
-			name = "Notify on highlight list 7",
-			description = "Notifies you whenever a highlighted word in list 7 is matched.",
-			section = highlightList7
+			keyName = "notificationEnabled7",
+			name = "Enable notification list 7",
+			description = "",
+			section = notificationList7
 	)
-	default Notification notifyOnHighlight7()
+	default Notification notificationEnabled7()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 8 ====================
+	// ==================== Notification list 8 ====================
 	@ConfigSection(
-			name = "Highlight list 8",
-			description = "Highlight list 8 settings.",
+			name = "Notification list 8",
+			description = "Notification list 8 settings.",
 			position = 80,
 			closedByDefault = true
 	)
-	String highlightList8 = "highlightList8";
+	String notificationList8 = "notificationList8";
 
 	@ConfigItem(
 			position = 81,
-			keyName = "highlightWords8",
+			keyName = "notificationWords8",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList8
+			section = notificationList8
 	)
-	default String highlightWords8()
+	default String notificationWords8()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 82,
-			keyName = "highlightRegex8",
+			keyName = "notificationRegex8",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList8
+			section = notificationList8
 	)
-	default String highlightRegex8()
+	default String notificationRegex8()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 83,
-			keyName = "notifyOnHighlight8",
-			name = "Notify on highlight list 8",
-			description = "Notifies you whenever a highlighted word in list 8 is matched.",
-			section = highlightList8
+			keyName = "notificationEnabled8",
+			name = "Enable notification list 8",
+			description = "",
+			section = notificationList8
 	)
-	default Notification notifyOnHighlight8()
+	default Notification notificationEnabled8()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 9 ====================
+	// ==================== Notification list 9 ====================
 	@ConfigSection(
-			name = "Highlight list 9",
-			description = "Highlight list 9 settings.",
+			name = "Notification list 9",
+			description = "Notification list 9 settings.",
 			position = 90,
 			closedByDefault = true
 	)
-	String highlightList9 = "highlightList9";
+	String notificationList9 = "notificationList9";
 
 	@ConfigItem(
 			position = 91,
-			keyName = "highlightWords9",
+			keyName = "notificationWords9",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList9
+			section = notificationList9
 	)
-	default String highlightWords9()
+	default String notificationWords9()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 92,
-			keyName = "highlightRegex9",
+			keyName = "notificationRegex9",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList9
+			section = notificationList9
 	)
-	default String highlightRegex9()
+	default String notificationRegex9()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 93,
-			keyName = "notifyOnHighlight9",
-			name = "Notify on highlight list 9",
-			description = "Notifies you whenever a highlighted word in list 9 is matched.",
-			section = highlightList9
+			keyName = "notificationEnabled9",
+			name = "Enable notification list 9",
+			description = "",
+			section = notificationList9
 	)
-	default Notification notifyOnHighlight9()
+	default Notification notificationEnabled9()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 10 ====================
+	// ==================== Notification list 10 ====================
 	@ConfigSection(
-			name = "Highlight list 10",
-			description = "Highlight list 10 settings.",
+			name = "Notification list 10",
+			description = "Notification list 10 settings.",
 			position = 100,
 			closedByDefault = true
 	)
-	String highlightList10 = "highlightList10";
+	String notificationList10 = "notificationList10";
 
 	@ConfigItem(
 			position = 101,
-			keyName = "highlightWords10",
+			keyName = "notificationWords10",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList10
+			section = notificationList10
 	)
-	default String highlightWords10()
+	default String notificationWords10()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 102,
-			keyName = "highlightRegex10",
+			keyName = "notificationRegex10",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList10
+			section = notificationList10
 	)
-	default String highlightRegex10()
+	default String notificationRegex10()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 103,
-			keyName = "notifyOnHighlight10",
-			name = "Notify on highlight list 10",
-			description = "Notifies you whenever a highlighted word in list 10 is matched.",
-			section = highlightList10
+			keyName = "notificationEnabled10",
+			name = "Enable notification list 10",
+			description = "",
+			section = notificationList10
 	)
-	default Notification notifyOnHighlight10()
+	default Notification notificationEnabled10()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 11 ====================
+	// ==================== Notification list 11 ====================
 	@ConfigSection(
-			name = "Highlight list 11",
-			description = "Highlight list 11 settings.",
+			name = "Notification list 11",
+			description = "Notification list 11 settings.",
 			position = 110,
 			closedByDefault = true
 	)
-	String highlightList11 = "highlightList11";
+	String notificationList11 = "notificationList11";
 
 	@ConfigItem(
 			position = 111,
-			keyName = "highlightWords11",
+			keyName = "notificationWords11",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList11
+			section = notificationList11
 	)
-	default String highlightWords11()
+	default String notificationWords11()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 112,
-			keyName = "highlightRegex11",
+			keyName = "notificationRegex11",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList11
+			section = notificationList11
 	)
-	default String highlightRegex11()
+	default String notificationRegex11()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 113,
-			keyName = "notifyOnHighlight11",
-			name = "Notify on highlight list 11",
-			description = "Notifies you whenever a highlighted word in list 11 is matched.",
-			section = highlightList11
+			keyName = "notificationEnabled11",
+			name = "Enable notification list 11",
+			description = "",
+			section = notificationList11
 	)
-	default Notification notifyOnHighlight11()
+	default Notification notificationEnabled11()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 12 ====================
+	// ==================== Notification list 12 ====================
 	@ConfigSection(
-			name = "Highlight list 12",
-			description = "Highlight list 12 settings.",
+			name = "Notification list 12",
+			description = "Notification list 12 settings.",
 			position = 120,
 			closedByDefault = true
 	)
-	String highlightList12 = "highlightList12";
+	String notificationList12 = "notificationList12";
 
 	@ConfigItem(
 			position = 121,
-			keyName = "highlightWords12",
+			keyName = "notificationWords12",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList12
+			section = notificationList12
 	)
-	default String highlightWords12()
+	default String notificationWords12()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 122,
-			keyName = "highlightRegex12",
+			keyName = "notificationRegex12",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList12
+			section = notificationList12
 	)
-	default String highlightRegex12()
+	default String notificationRegex12()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 123,
-			keyName = "notifyOnHighlight12",
-			name = "Notify on highlight list 12",
-			description = "Notifies you whenever a highlighted word in list 12 is matched.",
-			section = highlightList12
+			keyName = "notificationEnabled12",
+			name = "Enable notification list 12",
+			description = "",
+			section = notificationList12
 	)
-	default Notification notifyOnHighlight12()
+	default Notification notificationEnabled12()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 13 ====================
+	// ==================== Notification list 13 ====================
 	@ConfigSection(
-			name = "Highlight list 13",
-			description = "Highlight list 13 settings.",
+			name = "Notification list 13",
+			description = "Notification list 13 settings.",
 			position = 130,
 			closedByDefault = true
 	)
-	String highlightList13 = "highlightList13";
+	String notificationList13 = "notificationList13";
 
 	@ConfigItem(
 			position = 131,
-			keyName = "highlightWords13",
+			keyName = "notificationWords13",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList13
+			section = notificationList13
 	)
-	default String highlightWords13()
+	default String notificationWords13()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 132,
-			keyName = "highlightRegex13",
+			keyName = "notificationRegex13",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList13
+			section = notificationList13
 	)
-	default String highlightRegex13()
+	default String notificationRegex13()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 133,
-			keyName = "notifyOnHighlight13",
-			name = "Notify on highlight list 13",
-			description = "Notifies you whenever a highlighted word in list 13 is matched.",
-			section = highlightList13
+			keyName = "notificationEnabled13",
+			name = "Enable notification list 13",
+			description = "",
+			section = notificationList13
 	)
-	default Notification notifyOnHighlight13()
+	default Notification notificationEnabled13()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 14 ====================
+	// ==================== Notification list 14 ====================
 	@ConfigSection(
-			name = "Highlight list 14",
-			description = "Highlight list 14 settings.",
+			name = "Notification list 14",
+			description = "Notification list 14 settings.",
 			position = 140,
 			closedByDefault = true
 	)
-	String highlightList14 = "highlightList14";
+	String notificationList14 = "notificationList14";
 
 	@ConfigItem(
 			position = 141,
-			keyName = "highlightWords14",
+			keyName = "notificationWords14",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList14
+			section = notificationList14
 	)
-	default String highlightWords14()
+	default String notificationWords14()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 142,
-			keyName = "highlightRegex14",
+			keyName = "notificationRegex14",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList14
+			section = notificationList14
 	)
-	default String highlightRegex14()
+	default String notificationRegex14()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 143,
-			keyName = "notifyOnHighlight14",
-			name = "Notify on highlight list 14",
-			description = "Notifies you whenever a highlighted word in list 14 is matched.",
-			section = highlightList14
+			keyName = "notificationEnabled14",
+			name = "Enable notification list 14",
+			description = "",
+			section = notificationList14
 	)
-	default Notification notifyOnHighlight14()
+	default Notification notificationEnabled14()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 15 ====================
+	// ==================== Notification list 15 ====================
 	@ConfigSection(
-			name = "Highlight list 15",
-			description = "Highlight list 15 settings.",
+			name = "Notification list 15",
+			description = "Notification list 15 settings.",
 			position = 150,
 			closedByDefault = true
 	)
-	String highlightList15 = "highlightList15";
+	String notificationList15 = "notificationList15";
 
 	@ConfigItem(
 			position = 151,
-			keyName = "highlightWords15",
+			keyName = "notificationWords15",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList15
+			section = notificationList15
 	)
-	default String highlightWords15()
+	default String notificationWords15()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 152,
-			keyName = "highlightRegex15",
+			keyName = "notificationRegex15",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList15
+			section = notificationList15
 	)
-	default String highlightRegex15()
+	default String notificationRegex15()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 153,
-			keyName = "notifyOnHighlight15",
-			name = "Notify on highlight list 15",
-			description = "Notifies you whenever a highlighted word in list 15 is matched.",
-			section = highlightList15
+			keyName = "notificationEnabled15",
+			name = "Enable notification list 15",
+			description = "",
+			section = notificationList15
 	)
-	default Notification notifyOnHighlight15()
+	default Notification notificationEnabled15()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 16 ====================
+	// ==================== Notification list 16 ====================
 	@ConfigSection(
-			name = "Highlight list 16",
-			description = "Highlight list 16 settings.",
+			name = "Notification list 16",
+			description = "Notification list 16 settings.",
 			position = 160,
 			closedByDefault = true
 	)
-	String highlightList16 = "highlightList16";
+	String notificationList16 = "notificationList16";
 
 	@ConfigItem(
 			position = 161,
-			keyName = "highlightWords16",
+			keyName = "notificationWords16",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList16
+			section = notificationList16
 	)
-	default String highlightWords16()
+	default String notificationWords16()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 162,
-			keyName = "highlightRegex16",
+			keyName = "notificationRegex16",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList16
+			section = notificationList16
 	)
-	default String highlightRegex16()
+	default String notificationRegex16()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 163,
-			keyName = "notifyOnHighlight16",
-			name = "Notify on highlight list 16",
-			description = "Notifies you whenever a highlighted word in list 16 is matched.",
-			section = highlightList16
+			keyName = "notificationEnabled16",
+			name = "Enable notification list 16",
+			description = "",
+			section = notificationList16
 	)
-	default Notification notifyOnHighlight16()
+	default Notification notificationEnabled16()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 17 ====================
+	// ==================== Notification list 17 ====================
 	@ConfigSection(
-			name = "Highlight list 17",
-			description = "Highlight list 17 settings.",
+			name = "Notification list 17",
+			description = "Notification list 17 settings.",
 			position = 170,
 			closedByDefault = true
 	)
-	String highlightList17 = "highlightList17";
+	String notificationList17 = "notificationList17";
 
 	@ConfigItem(
 			position = 171,
-			keyName = "highlightWords17",
+			keyName = "notificationWords17",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList17
+			section = notificationList17
 	)
-	default String highlightWords17()
+	default String notificationWords17()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 172,
-			keyName = "highlightRegex17",
+			keyName = "notificationRegex17",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList17
+			section = notificationList17
 	)
-	default String highlightRegex17()
+	default String notificationRegex17()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 173,
-			keyName = "notifyOnHighlight17",
-			name = "Notify on highlight list 17",
-			description = "Notifies you whenever a highlighted word in list 17 is matched.",
-			section = highlightList17
+			keyName = "notificationEnabled17",
+			name = "Enable notification list 17",
+			description = "",
+			section = notificationList17
 	)
-	default Notification notifyOnHighlight17()
+	default Notification notificationEnabled17()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 18 ====================
+	// ==================== Notification list 18 ====================
 	@ConfigSection(
-			name = "Highlight list 18",
-			description = "Highlight list 18 settings.",
+			name = "Notification list 18",
+			description = "Notification list 18 settings.",
 			position = 180,
 			closedByDefault = true
 	)
-	String highlightList18 = "highlightList18";
+	String notificationList18 = "notificationList18";
 
 	@ConfigItem(
 			position = 181,
-			keyName = "highlightWords18",
+			keyName = "notificationWords18",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList18
+			section = notificationList18
 	)
-	default String highlightWords18()
+	default String notificationWords18()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 182,
-			keyName = "highlightRegex18",
+			keyName = "notificationRegex18",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList18
+			section = notificationList18
 	)
-	default String highlightRegex18()
+	default String notificationRegex18()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 183,
-			keyName = "notifyOnHighlight18",
-			name = "Notify on highlight list 18",
-			description = "Notifies you whenever a highlighted word in list 18 is matched.",
-			section = highlightList18
+			keyName = "notificationEnabled18",
+			name = "Enable notification list 18",
+			description = "",
+			section = notificationList18
 	)
-	default Notification notifyOnHighlight18()
+	default Notification notificationEnabled18()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 19 ====================
+	// ==================== Notification list 19 ====================
 	@ConfigSection(
-			name = "Highlight list 19",
-			description = "Highlight list 19 settings.",
+			name = "Notification list 19",
+			description = "Notification list 19 settings.",
 			position = 190,
 			closedByDefault = true
 	)
-	String highlightList19 = "highlightList19";
+	String notificationList19 = "notificationList19";
 
 	@ConfigItem(
 			position = 191,
-			keyName = "highlightWords19",
+			keyName = "notificationWords19",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList19
+			section = notificationList19
 	)
-	default String highlightWords19()
+	default String notificationWords19()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 192,
-			keyName = "highlightRegex19",
+			keyName = "notificationRegex19",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList19
+			section = notificationList19
 	)
-	default String highlightRegex19()
+	default String notificationRegex19()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 193,
-			keyName = "notifyOnHighlight19",
-			name = "Notify on highlight list 19",
-			description = "Notifies you whenever a highlighted word in list 19 is matched.",
-			section = highlightList19
+			keyName = "notificationEnabled19",
+			name = "Enable notification list 19",
+			description = "",
+			section = notificationList19
 	)
-	default Notification notifyOnHighlight19()
+	default Notification notificationEnabled19()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 20 ====================
+	// ==================== Notification list 20 ====================
 	@ConfigSection(
-			name = "Highlight list 20",
-			description = "Highlight list 20 settings.",
+			name = "Notification list 20",
+			description = "Notification list 20 settings.",
 			position = 200,
 			closedByDefault = true
 	)
-	String highlightList20 = "highlightList20";
+	String notificationList20 = "notificationList20";
 
 	@ConfigItem(
 			position = 201,
-			keyName = "highlightWords20",
+			keyName = "notificationWords20",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList20
+			section = notificationList20
 	)
-	default String highlightWords20()
+	default String notificationWords20()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 202,
-			keyName = "highlightRegex20",
+			keyName = "notificationRegex20",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList20
+			section = notificationList20
 	)
-	default String highlightRegex20()
+	default String notificationRegex20()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 203,
-			keyName = "notifyOnHighlight20",
-			name = "Notify on highlight list 20",
-			description = "Notifies you whenever a highlighted word in list 20 is matched.",
-			section = highlightList20
+			keyName = "notificationEnabled20",
+			name = "Enable notification list 20",
+			description = "",
+			section = notificationList20
 	)
-	default Notification notifyOnHighlight20()
+	default Notification notificationEnabled20()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 21 ====================
+	// ==================== Notification list 21 ====================
 	@ConfigSection(
-			name = "Highlight list 21",
-			description = "Highlight list 21 settings.",
+			name = "Notification list 21",
+			description = "Notification list 21 settings.",
 			position = 210,
 			closedByDefault = true
 	)
-	String highlightList21 = "highlightList21";
+	String notificationList21 = "notificationList21";
 
 	@ConfigItem(
 			position = 211,
-			keyName = "highlightWords21",
+			keyName = "notificationWords21",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList21
+			section = notificationList21
 	)
-	default String highlightWords21()
+	default String notificationWords21()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 212,
-			keyName = "highlightRegex21",
+			keyName = "notificationRegex21",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList21
+			section = notificationList21
 	)
-	default String highlightRegex21()
+	default String notificationRegex21()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 213,
-			keyName = "notifyOnHighlight21",
-			name = "Notify on highlight list 21",
-			description = "Notifies you whenever a highlighted word in list 21 is matched.",
-			section = highlightList21
+			keyName = "notificationEnabled21",
+			name = "Enable notification list 21",
+			description = "",
+			section = notificationList21
 	)
-	default Notification notifyOnHighlight21()
+	default Notification notificationEnabled21()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 22 ====================
+	// ==================== Notification list 22 ====================
 	@ConfigSection(
-			name = "Highlight list 22",
-			description = "Highlight list 22 settings.",
+			name = "Notification list 22",
+			description = "Notification list 22 settings.",
 			position = 220,
 			closedByDefault = true
 	)
-	String highlightList22 = "highlightList22";
+	String notificationList22 = "notificationList22";
 
 	@ConfigItem(
 			position = 221,
-			keyName = "highlightWords22",
+			keyName = "notificationWords22",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList22
+			section = notificationList22
 	)
-	default String highlightWords22()
+	default String notificationWords22()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 222,
-			keyName = "highlightRegex22",
+			keyName = "notificationRegex22",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList22
+			section = notificationList22
 	)
-	default String highlightRegex22()
+	default String notificationRegex22()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 223,
-			keyName = "notifyOnHighlight22",
-			name = "Notify on highlight list 22",
-			description = "Notifies you whenever a highlighted word in list 22 is matched.",
-			section = highlightList22
+			keyName = "notificationEnabled22",
+			name = "Enable notification list 22",
+			description = "",
+			section = notificationList22
 	)
-	default Notification notifyOnHighlight22()
+	default Notification notificationEnabled22()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 23 ====================
+	// ==================== Notification list 23 ====================
 	@ConfigSection(
-			name = "Highlight list 23",
-			description = "Highlight list 23 settings.",
+			name = "Notification list 23",
+			description = "Notification list 23 settings.",
 			position = 230,
 			closedByDefault = true
 	)
-	String highlightList23 = "highlightList23";
+	String notificationList23 = "notificationList23";
 
 	@ConfigItem(
 			position = 231,
-			keyName = "highlightWords23",
+			keyName = "notificationWords23",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList23
+			section = notificationList23
 	)
-	default String highlightWords23()
+	default String notificationWords23()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 232,
-			keyName = "highlightRegex23",
+			keyName = "notificationRegex23",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList23
+			section = notificationList23
 	)
-	default String highlightRegex23()
+	default String notificationRegex23()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 233,
-			keyName = "notifyOnHighlight23",
-			name = "Notify on highlight list 23",
-			description = "Notifies you whenever a highlighted word in list 23 is matched.",
-			section = highlightList23
+			keyName = "notificationEnabled23",
+			name = "Enable notification list 23",
+			description = "",
+			section = notificationList23
 	)
-	default Notification notifyOnHighlight23()
+	default Notification notificationEnabled23()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 24 ====================
+	// ==================== Notification list 24 ====================
 	@ConfigSection(
-			name = "Highlight list 24",
-			description = "Highlight list 24 settings.",
+			name = "Notification list 24",
+			description = "Notification list 24 settings.",
 			position = 240,
 			closedByDefault = true
 	)
-	String highlightList24 = "highlightList24";
+	String notificationList24 = "notificationList24";
 
 	@ConfigItem(
 			position = 241,
-			keyName = "highlightWords24",
+			keyName = "notificationWords24",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList24
+			section = notificationList24
 	)
-	default String highlightWords24()
+	default String notificationWords24()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 242,
-			keyName = "highlightRegex24",
+			keyName = "notificationRegex24",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList24
+			section = notificationList24
 	)
-	default String highlightRegex24()
+	default String notificationRegex24()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 243,
-			keyName = "notifyOnHighlight24",
-			name = "Notify on highlight list 24",
-			description = "Notifies you whenever a highlighted word in list 24 is matched.",
-			section = highlightList24
+			keyName = "notificationEnabled24",
+			name = "Enable notification list 24",
+			description = "",
+			section = notificationList24
 	)
-	default Notification notifyOnHighlight24()
+	default Notification notificationEnabled24()
 	{
 		return Notification.OFF;
 	}
 
-	// ==================== Highlight list 25 ====================
+	// ==================== Notification list 25 ====================
 	@ConfigSection(
-			name = "Highlight list 25",
-			description = "Highlight list 25 settings.",
+			name = "Notification list 25",
+			description = "Notification list 25 settings.",
 			position = 250,
 			closedByDefault = true
 	)
-	String highlightList25 = "highlightList25";
+	String notificationList25 = "notificationList25";
 
 	@ConfigItem(
 			position = 251,
-			keyName = "highlightWords25",
+			keyName = "notificationWords25",
 			name = NAME_WORDS,
 			description = DESC_WORDS,
-			section = highlightList25
+			section = notificationList25
 	)
-	default String highlightWords25()
+	default String notificationWords25()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 252,
-			keyName = "highlightRegex25",
+			keyName = "notificationRegex25",
 			name = NAME_REGEX,
 			description = DESC_REGEX,
-			section = highlightList25
+			section = notificationList25
 	)
-	default String highlightRegex25()
+	default String notificationRegex25()
 	{
 		return "";
 	}
 
 	@ConfigItem(
 			position = 253,
-			keyName = "notifyOnHighlight25",
-			name = "Notify on highlight list 25",
-			description = "Notifies you whenever a highlighted word in list 25 is matched.",
-			section = highlightList25
+			keyName = "notificationEnabled25",
+			name = "Enable notification list 25",
+			description = "",
+			section = notificationList25
 	)
-	default Notification notifyOnHighlight25()
+	default Notification notificationEnabled25()
 	{
 		return Notification.OFF;
 	}
