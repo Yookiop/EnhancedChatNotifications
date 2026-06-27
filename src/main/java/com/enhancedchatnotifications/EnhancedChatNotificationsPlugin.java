@@ -231,10 +231,16 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 		return s != null ? s : 16;
 	}
 
-	private OverlayPositionMode getOverlayPosition(int list)
+	private int getOverlayX(int list)
 	{
-		OverlayPositionMode p = configManager.getConfiguration(CONFIG_GROUP, "overlayPosition" + list, OverlayPositionMode.class);
-		return p != null ? p : OverlayPositionMode.TOP;
+		Integer x = configManager.getConfiguration(CONFIG_GROUP, "overlayX" + list, Integer.class);
+		return x != null ? x : 0;
+	}
+
+	private int getOverlayY(int list)
+	{
+		Integer y = configManager.getConfiguration(CONFIG_GROUP, "overlayY" + list, Integer.class);
+		return y != null ? y : 0;
 	}
 
 	private Color getOverlayBgColor(int list)
@@ -336,7 +342,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 					String overlayText = getOverlayText(listNum);
 					if (!overlayText.isEmpty())
 					{
-						overlay.addEntry(listNum, overlayText, getOverlayColor(listNum), getOverlayBgColor(listNum), getOverlaySize(listNum), config.overlayDisplayMode(), config.overlayDuration(), getOverlayPosition(listNum));
+						overlay.addEntry(listNum, overlayText, getOverlayColor(listNum), getOverlayBgColor(listNum), getOverlaySize(listNum), config.overlayDisplayMode(), config.overlayDuration(), getOverlayX(listNum), getOverlayY(listNum));
 					}
 				}
 			}
