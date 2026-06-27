@@ -16,4 +16,4 @@ Customizable screen and text notifications based on chat messages.
 - Prayer regeneration potion has won off → Blue screen + text 'Prayer regen'
 - Any game chat trigger → your own custom style
 
-![Custom notification example](https://imgur.com/a/wcwIGeO.png)
+![Custom notification example](https://i.imgur.com/wcwIGeO.png)
