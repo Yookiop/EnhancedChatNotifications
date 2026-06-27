@@ -44,7 +44,7 @@ import net.runelite.client.util.Text;
 )
 public class EnhancedChatNotificationsPlugin extends Plugin
 {
-	static final int MAX_LISTS = 10;
+	static final int MAX_LISTS = 25;
 	private static final String CONFIG_GROUP = "enhancedchatnotifications";
 
 	@Inject
@@ -231,6 +231,12 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 		return s != null ? s : 16;
 	}
 
+	private OverlayPositionMode getOverlayPosition(int list)
+	{
+		OverlayPositionMode p = configManager.getConfiguration(CONFIG_GROUP, "overlayPosition" + list, OverlayPositionMode.class);
+		return p != null ? p : OverlayPositionMode.TOP;
+	}
+
 	private Color getOverlayBgColor(int list)
 	{
 		Color c = configManager.getConfiguration(CONFIG_GROUP, "overlayBgColor" + list, Color.class);
@@ -330,7 +336,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 					String overlayText = getOverlayText(listNum);
 					if (!overlayText.isEmpty())
 					{
-						overlay.addEntry(listNum, overlayText, getOverlayColor(listNum), getOverlayBgColor(listNum), getOverlaySize(listNum), config.overlayDisplayMode(), config.overlayDuration());
+						overlay.addEntry(listNum, overlayText, getOverlayColor(listNum), getOverlayBgColor(listNum), getOverlaySize(listNum), config.overlayDisplayMode(), config.overlayDuration(), getOverlayPosition(listNum));
 					}
 				}
 			}
