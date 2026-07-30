@@ -296,6 +296,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 		}
 
 		String nodeValue = messageNode.getValue();
+		String cleanValue = stripColor(nodeValue);
 
 		for (int listIdx = 0; listIdx < allListPatterns.size(); listIdx++)
 		{
@@ -304,9 +305,19 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 
 			for (Pattern pattern : patterns)
 			{
+				// First check against clean text (without RuneScape color tags)
+				Matcher cleanMatcher = pattern.matcher(cleanValue);
+				if (!cleanMatcher.find())
+				{
+					continue;
+				}
+
+				// Then match against original text for proper highlighting
 				Matcher matcher = pattern.matcher(nodeValue);
 				if (!matcher.find())
 				{
+					matchesThisList = true;
+					update = true;
 					continue;
 				}
 
