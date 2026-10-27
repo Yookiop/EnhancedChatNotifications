@@ -46,7 +46,7 @@ public interface EnhancedChatNotificationsConfig extends Config
 			position = 3,
 			keyName = "overlayDuration",
 			name = "Duration (seconds)",
-			description = "How long overlay text stays on screen (only for timed modes).",
+			description = "How long overlay text stays on screen (only for timed modes). Lists with their own Duration use that instead.",
 			section = overlaySettings
 	)
 	default int overlayDuration()
@@ -54,10 +54,10 @@ public interface EnhancedChatNotificationsConfig extends Config
 		return 5;
 	}
 
-	// Each list uses 11 positions: section(base), alias(+1), words(+2), regex(+3),
+	// Each list uses 12 positions: section(base), alias(+1), words(+2), regex(+3),
 	// enabled(+4), overlayText(+5), overlayColor(+6), overlaySize(+7),
-	// overlayX(+8), overlayY(+9), overlayBgColor(+10)
-	// List n base = (n-1)*11 + 10
+	// overlayX(+8), overlayY(+9), overlayBgColor(+10), overlayDuration(+11)
+	// List n base = (n-1)*12 + 10
 
 	// Notification list 1 (base=10)
 	@ConfigSection(name = "Notification list 1", description = "Notification list 1 settings.", position = 10, closedByDefault = false)
@@ -83,340 +83,366 @@ public interface EnhancedChatNotificationsConfig extends Config
 	default int overlayY1() { return 0; }
 	@Alpha @ConfigItem(position = 20, keyName = "overlayBgColor1", name = "Background color", description = "Background color behind the overlay text.", section = notificationList1)
 	default Color overlayBgColor1() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 21, keyName = "overlayDuration1", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList1)
+	default int overlayDuration1() { return 0; }
 
-	// Notification list 2 (base=21)
-	@ConfigSection(name = "Notification list 2", description = "Notification list 2 settings.", position = 21, closedByDefault = true)
+	// Notification list 2 (base=22)
+	@ConfigSection(name = "Notification list 2", description = "Notification list 2 settings.", position = 22, closedByDefault = true)
 	String notificationList2 = "notificationList2";
-	@ConfigItem(position = 22, keyName = "listAlias2", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList2) default String listAlias2() { return ""; }
-	@ConfigItem(position = 23, keyName = "notificationWords2", name = NAME_WORDS, description = DESC_WORDS, section = notificationList2) default String notificationWords2() { return ""; }
-	@ConfigItem(position = 24, keyName = "notificationRegex2", name = NAME_REGEX, description = DESC_REGEX, section = notificationList2) default String notificationRegex2() { return ""; }
-	@ConfigItem(position = 25, keyName = "notificationEnabled2", name = "Enable notification list 2", description = "", section = notificationList2) default Notification notificationEnabled2() { return Notification.OFF; }
-	@ConfigItem(position = 26, keyName = "overlayText2", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList2) default String overlayText2() { return ""; }
-	@Alpha @ConfigItem(position = 27, keyName = "overlayColor2", name = "Text color", description = "Color of the overlay text.", section = notificationList2) default Color overlayColor2() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 28, keyName = "overlaySize2", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList2) default int overlaySize2() { return 16; }
-	@ConfigItem(position = 29, keyName = "overlayX2", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList2) default int overlayX2() { return 0; }
-	@ConfigItem(position = 30, keyName = "overlayY2", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList2) default int overlayY2() { return 0; }
-	@Alpha @ConfigItem(position = 31, keyName = "overlayBgColor2", name = "Background color", description = "Background color behind the overlay text.", section = notificationList2) default Color overlayBgColor2() { return Color.BLACK; }
+	@ConfigItem(position = 23, keyName = "listAlias2", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList2) default String listAlias2() { return ""; }
+	@ConfigItem(position = 24, keyName = "notificationWords2", name = NAME_WORDS, description = DESC_WORDS, section = notificationList2) default String notificationWords2() { return ""; }
+	@ConfigItem(position = 25, keyName = "notificationRegex2", name = NAME_REGEX, description = DESC_REGEX, section = notificationList2) default String notificationRegex2() { return ""; }
+	@ConfigItem(position = 26, keyName = "notificationEnabled2", name = "Enable notification list 2", description = "", section = notificationList2) default Notification notificationEnabled2() { return Notification.OFF; }
+	@ConfigItem(position = 27, keyName = "overlayText2", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList2) default String overlayText2() { return ""; }
+	@Alpha @ConfigItem(position = 28, keyName = "overlayColor2", name = "Text color", description = "Color of the overlay text.", section = notificationList2) default Color overlayColor2() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 29, keyName = "overlaySize2", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList2) default int overlaySize2() { return 16; }
+	@ConfigItem(position = 30, keyName = "overlayX2", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList2) default int overlayX2() { return 0; }
+	@ConfigItem(position = 31, keyName = "overlayY2", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList2) default int overlayY2() { return 0; }
+	@Alpha @ConfigItem(position = 32, keyName = "overlayBgColor2", name = "Background color", description = "Background color behind the overlay text.", section = notificationList2) default Color overlayBgColor2() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 33, keyName = "overlayDuration2", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList2) default int overlayDuration2() { return 0; }
 
-	// Notification list 3 (base=32)
-	@ConfigSection(name = "Notification list 3", description = "Notification list 3 settings.", position = 32, closedByDefault = true)
+	// Notification list 3 (base=34)
+	@ConfigSection(name = "Notification list 3", description = "Notification list 3 settings.", position = 34, closedByDefault = true)
 	String notificationList3 = "notificationList3";
-	@ConfigItem(position = 33, keyName = "listAlias3", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList3) default String listAlias3() { return ""; }
-	@ConfigItem(position = 34, keyName = "notificationWords3", name = NAME_WORDS, description = DESC_WORDS, section = notificationList3) default String notificationWords3() { return ""; }
-	@ConfigItem(position = 35, keyName = "notificationRegex3", name = NAME_REGEX, description = DESC_REGEX, section = notificationList3) default String notificationRegex3() { return ""; }
-	@ConfigItem(position = 36, keyName = "notificationEnabled3", name = "Enable notification list 3", description = "", section = notificationList3) default Notification notificationEnabled3() { return Notification.OFF; }
-	@ConfigItem(position = 37, keyName = "overlayText3", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList3) default String overlayText3() { return ""; }
-	@Alpha @ConfigItem(position = 38, keyName = "overlayColor3", name = "Text color", description = "Color of the overlay text.", section = notificationList3) default Color overlayColor3() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 39, keyName = "overlaySize3", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList3) default int overlaySize3() { return 16; }
-	@ConfigItem(position = 40, keyName = "overlayX3", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList3) default int overlayX3() { return 0; }
-	@ConfigItem(position = 41, keyName = "overlayY3", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList3) default int overlayY3() { return 0; }
-	@Alpha @ConfigItem(position = 42, keyName = "overlayBgColor3", name = "Background color", description = "Background color behind the overlay text.", section = notificationList3) default Color overlayBgColor3() { return Color.BLACK; }
+	@ConfigItem(position = 35, keyName = "listAlias3", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList3) default String listAlias3() { return ""; }
+	@ConfigItem(position = 36, keyName = "notificationWords3", name = NAME_WORDS, description = DESC_WORDS, section = notificationList3) default String notificationWords3() { return ""; }
+	@ConfigItem(position = 37, keyName = "notificationRegex3", name = NAME_REGEX, description = DESC_REGEX, section = notificationList3) default String notificationRegex3() { return ""; }
+	@ConfigItem(position = 38, keyName = "notificationEnabled3", name = "Enable notification list 3", description = "", section = notificationList3) default Notification notificationEnabled3() { return Notification.OFF; }
+	@ConfigItem(position = 39, keyName = "overlayText3", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList3) default String overlayText3() { return ""; }
+	@Alpha @ConfigItem(position = 40, keyName = "overlayColor3", name = "Text color", description = "Color of the overlay text.", section = notificationList3) default Color overlayColor3() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 41, keyName = "overlaySize3", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList3) default int overlaySize3() { return 16; }
+	@ConfigItem(position = 42, keyName = "overlayX3", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList3) default int overlayX3() { return 0; }
+	@ConfigItem(position = 43, keyName = "overlayY3", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList3) default int overlayY3() { return 0; }
+	@Alpha @ConfigItem(position = 44, keyName = "overlayBgColor3", name = "Background color", description = "Background color behind the overlay text.", section = notificationList3) default Color overlayBgColor3() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 45, keyName = "overlayDuration3", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList3) default int overlayDuration3() { return 0; }
 
-	// Notification list 4 (base=43)
-	@ConfigSection(name = "Notification list 4", description = "Notification list 4 settings.", position = 43, closedByDefault = true)
+	// Notification list 4 (base=46)
+	@ConfigSection(name = "Notification list 4", description = "Notification list 4 settings.", position = 46, closedByDefault = true)
 	String notificationList4 = "notificationList4";
-	@ConfigItem(position = 44, keyName = "listAlias4", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList4) default String listAlias4() { return ""; }
-	@ConfigItem(position = 45, keyName = "notificationWords4", name = NAME_WORDS, description = DESC_WORDS, section = notificationList4) default String notificationWords4() { return ""; }
-	@ConfigItem(position = 46, keyName = "notificationRegex4", name = NAME_REGEX, description = DESC_REGEX, section = notificationList4) default String notificationRegex4() { return ""; }
-	@ConfigItem(position = 47, keyName = "notificationEnabled4", name = "Enable notification list 4", description = "", section = notificationList4) default Notification notificationEnabled4() { return Notification.OFF; }
-	@ConfigItem(position = 48, keyName = "overlayText4", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList4) default String overlayText4() { return ""; }
-	@Alpha @ConfigItem(position = 49, keyName = "overlayColor4", name = "Text color", description = "Color of the overlay text.", section = notificationList4) default Color overlayColor4() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 50, keyName = "overlaySize4", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList4) default int overlaySize4() { return 16; }
-	@ConfigItem(position = 51, keyName = "overlayX4", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList4) default int overlayX4() { return 0; }
-	@ConfigItem(position = 52, keyName = "overlayY4", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList4) default int overlayY4() { return 0; }
-	@Alpha @ConfigItem(position = 53, keyName = "overlayBgColor4", name = "Background color", description = "Background color behind the overlay text.", section = notificationList4) default Color overlayBgColor4() { return Color.BLACK; }
+	@ConfigItem(position = 47, keyName = "listAlias4", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList4) default String listAlias4() { return ""; }
+	@ConfigItem(position = 48, keyName = "notificationWords4", name = NAME_WORDS, description = DESC_WORDS, section = notificationList4) default String notificationWords4() { return ""; }
+	@ConfigItem(position = 49, keyName = "notificationRegex4", name = NAME_REGEX, description = DESC_REGEX, section = notificationList4) default String notificationRegex4() { return ""; }
+	@ConfigItem(position = 50, keyName = "notificationEnabled4", name = "Enable notification list 4", description = "", section = notificationList4) default Notification notificationEnabled4() { return Notification.OFF; }
+	@ConfigItem(position = 51, keyName = "overlayText4", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList4) default String overlayText4() { return ""; }
+	@Alpha @ConfigItem(position = 52, keyName = "overlayColor4", name = "Text color", description = "Color of the overlay text.", section = notificationList4) default Color overlayColor4() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 53, keyName = "overlaySize4", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList4) default int overlaySize4() { return 16; }
+	@ConfigItem(position = 54, keyName = "overlayX4", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList4) default int overlayX4() { return 0; }
+	@ConfigItem(position = 55, keyName = "overlayY4", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList4) default int overlayY4() { return 0; }
+	@Alpha @ConfigItem(position = 56, keyName = "overlayBgColor4", name = "Background color", description = "Background color behind the overlay text.", section = notificationList4) default Color overlayBgColor4() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 57, keyName = "overlayDuration4", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList4) default int overlayDuration4() { return 0; }
 
-	// Notification list 5 (base=54)
-	@ConfigSection(name = "Notification list 5", description = "Notification list 5 settings.", position = 54, closedByDefault = true)
+	// Notification list 5 (base=58)
+	@ConfigSection(name = "Notification list 5", description = "Notification list 5 settings.", position = 58, closedByDefault = true)
 	String notificationList5 = "notificationList5";
-	@ConfigItem(position = 55, keyName = "listAlias5", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList5) default String listAlias5() { return ""; }
-	@ConfigItem(position = 56, keyName = "notificationWords5", name = NAME_WORDS, description = DESC_WORDS, section = notificationList5) default String notificationWords5() { return ""; }
-	@ConfigItem(position = 57, keyName = "notificationRegex5", name = NAME_REGEX, description = DESC_REGEX, section = notificationList5) default String notificationRegex5() { return ""; }
-	@ConfigItem(position = 58, keyName = "notificationEnabled5", name = "Enable notification list 5", description = "", section = notificationList5) default Notification notificationEnabled5() { return Notification.OFF; }
-	@ConfigItem(position = 59, keyName = "overlayText5", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList5) default String overlayText5() { return ""; }
-	@Alpha @ConfigItem(position = 60, keyName = "overlayColor5", name = "Text color", description = "Color of the overlay text.", section = notificationList5) default Color overlayColor5() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 61, keyName = "overlaySize5", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList5) default int overlaySize5() { return 16; }
-	@ConfigItem(position = 62, keyName = "overlayX5", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList5) default int overlayX5() { return 0; }
-	@ConfigItem(position = 63, keyName = "overlayY5", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList5) default int overlayY5() { return 0; }
-	@Alpha @ConfigItem(position = 64, keyName = "overlayBgColor5", name = "Background color", description = "Background color behind the overlay text.", section = notificationList5) default Color overlayBgColor5() { return Color.BLACK; }
+	@ConfigItem(position = 59, keyName = "listAlias5", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList5) default String listAlias5() { return ""; }
+	@ConfigItem(position = 60, keyName = "notificationWords5", name = NAME_WORDS, description = DESC_WORDS, section = notificationList5) default String notificationWords5() { return ""; }
+	@ConfigItem(position = 61, keyName = "notificationRegex5", name = NAME_REGEX, description = DESC_REGEX, section = notificationList5) default String notificationRegex5() { return ""; }
+	@ConfigItem(position = 62, keyName = "notificationEnabled5", name = "Enable notification list 5", description = "", section = notificationList5) default Notification notificationEnabled5() { return Notification.OFF; }
+	@ConfigItem(position = 63, keyName = "overlayText5", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList5) default String overlayText5() { return ""; }
+	@Alpha @ConfigItem(position = 64, keyName = "overlayColor5", name = "Text color", description = "Color of the overlay text.", section = notificationList5) default Color overlayColor5() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 65, keyName = "overlaySize5", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList5) default int overlaySize5() { return 16; }
+	@ConfigItem(position = 66, keyName = "overlayX5", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList5) default int overlayX5() { return 0; }
+	@ConfigItem(position = 67, keyName = "overlayY5", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList5) default int overlayY5() { return 0; }
+	@Alpha @ConfigItem(position = 68, keyName = "overlayBgColor5", name = "Background color", description = "Background color behind the overlay text.", section = notificationList5) default Color overlayBgColor5() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 69, keyName = "overlayDuration5", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList5) default int overlayDuration5() { return 0; }
 
-	// Notification list 6 (base=65)
-	@ConfigSection(name = "Notification list 6", description = "Notification list 6 settings.", position = 65, closedByDefault = true)
+	// Notification list 6 (base=70)
+	@ConfigSection(name = "Notification list 6", description = "Notification list 6 settings.", position = 70, closedByDefault = true)
 	String notificationList6 = "notificationList6";
-	@ConfigItem(position = 66, keyName = "listAlias6", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList6) default String listAlias6() { return ""; }
-	@ConfigItem(position = 67, keyName = "notificationWords6", name = NAME_WORDS, description = DESC_WORDS, section = notificationList6) default String notificationWords6() { return ""; }
-	@ConfigItem(position = 68, keyName = "notificationRegex6", name = NAME_REGEX, description = DESC_REGEX, section = notificationList6) default String notificationRegex6() { return ""; }
-	@ConfigItem(position = 69, keyName = "notificationEnabled6", name = "Enable notification list 6", description = "", section = notificationList6) default Notification notificationEnabled6() { return Notification.OFF; }
-	@ConfigItem(position = 70, keyName = "overlayText6", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList6) default String overlayText6() { return ""; }
-	@Alpha @ConfigItem(position = 71, keyName = "overlayColor6", name = "Text color", description = "Color of the overlay text.", section = notificationList6) default Color overlayColor6() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 72, keyName = "overlaySize6", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList6) default int overlaySize6() { return 16; }
-	@ConfigItem(position = 73, keyName = "overlayX6", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList6) default int overlayX6() { return 0; }
-	@ConfigItem(position = 74, keyName = "overlayY6", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList6) default int overlayY6() { return 0; }
-	@Alpha @ConfigItem(position = 75, keyName = "overlayBgColor6", name = "Background color", description = "Background color behind the overlay text.", section = notificationList6) default Color overlayBgColor6() { return Color.BLACK; }
+	@ConfigItem(position = 71, keyName = "listAlias6", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList6) default String listAlias6() { return ""; }
+	@ConfigItem(position = 72, keyName = "notificationWords6", name = NAME_WORDS, description = DESC_WORDS, section = notificationList6) default String notificationWords6() { return ""; }
+	@ConfigItem(position = 73, keyName = "notificationRegex6", name = NAME_REGEX, description = DESC_REGEX, section = notificationList6) default String notificationRegex6() { return ""; }
+	@ConfigItem(position = 74, keyName = "notificationEnabled6", name = "Enable notification list 6", description = "", section = notificationList6) default Notification notificationEnabled6() { return Notification.OFF; }
+	@ConfigItem(position = 75, keyName = "overlayText6", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList6) default String overlayText6() { return ""; }
+	@Alpha @ConfigItem(position = 76, keyName = "overlayColor6", name = "Text color", description = "Color of the overlay text.", section = notificationList6) default Color overlayColor6() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 77, keyName = "overlaySize6", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList6) default int overlaySize6() { return 16; }
+	@ConfigItem(position = 78, keyName = "overlayX6", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList6) default int overlayX6() { return 0; }
+	@ConfigItem(position = 79, keyName = "overlayY6", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList6) default int overlayY6() { return 0; }
+	@Alpha @ConfigItem(position = 80, keyName = "overlayBgColor6", name = "Background color", description = "Background color behind the overlay text.", section = notificationList6) default Color overlayBgColor6() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 81, keyName = "overlayDuration6", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList6) default int overlayDuration6() { return 0; }
 
-	// Notification list 7 (base=76)
-	@ConfigSection(name = "Notification list 7", description = "Notification list 7 settings.", position = 76, closedByDefault = true)
+	// Notification list 7 (base=82)
+	@ConfigSection(name = "Notification list 7", description = "Notification list 7 settings.", position = 82, closedByDefault = true)
 	String notificationList7 = "notificationList7";
-	@ConfigItem(position = 77, keyName = "listAlias7", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList7) default String listAlias7() { return ""; }
-	@ConfigItem(position = 78, keyName = "notificationWords7", name = NAME_WORDS, description = DESC_WORDS, section = notificationList7) default String notificationWords7() { return ""; }
-	@ConfigItem(position = 79, keyName = "notificationRegex7", name = NAME_REGEX, description = DESC_REGEX, section = notificationList7) default String notificationRegex7() { return ""; }
-	@ConfigItem(position = 80, keyName = "notificationEnabled7", name = "Enable notification list 7", description = "", section = notificationList7) default Notification notificationEnabled7() { return Notification.OFF; }
-	@ConfigItem(position = 81, keyName = "overlayText7", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList7) default String overlayText7() { return ""; }
-	@Alpha @ConfigItem(position = 82, keyName = "overlayColor7", name = "Text color", description = "Color of the overlay text.", section = notificationList7) default Color overlayColor7() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 83, keyName = "overlaySize7", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList7) default int overlaySize7() { return 16; }
-	@ConfigItem(position = 84, keyName = "overlayX7", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList7) default int overlayX7() { return 0; }
-	@ConfigItem(position = 85, keyName = "overlayY7", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList7) default int overlayY7() { return 0; }
-	@Alpha @ConfigItem(position = 86, keyName = "overlayBgColor7", name = "Background color", description = "Background color behind the overlay text.", section = notificationList7) default Color overlayBgColor7() { return Color.BLACK; }
+	@ConfigItem(position = 83, keyName = "listAlias7", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList7) default String listAlias7() { return ""; }
+	@ConfigItem(position = 84, keyName = "notificationWords7", name = NAME_WORDS, description = DESC_WORDS, section = notificationList7) default String notificationWords7() { return ""; }
+	@ConfigItem(position = 85, keyName = "notificationRegex7", name = NAME_REGEX, description = DESC_REGEX, section = notificationList7) default String notificationRegex7() { return ""; }
+	@ConfigItem(position = 86, keyName = "notificationEnabled7", name = "Enable notification list 7", description = "", section = notificationList7) default Notification notificationEnabled7() { return Notification.OFF; }
+	@ConfigItem(position = 87, keyName = "overlayText7", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList7) default String overlayText7() { return ""; }
+	@Alpha @ConfigItem(position = 88, keyName = "overlayColor7", name = "Text color", description = "Color of the overlay text.", section = notificationList7) default Color overlayColor7() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 89, keyName = "overlaySize7", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList7) default int overlaySize7() { return 16; }
+	@ConfigItem(position = 90, keyName = "overlayX7", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList7) default int overlayX7() { return 0; }
+	@ConfigItem(position = 91, keyName = "overlayY7", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList7) default int overlayY7() { return 0; }
+	@Alpha @ConfigItem(position = 92, keyName = "overlayBgColor7", name = "Background color", description = "Background color behind the overlay text.", section = notificationList7) default Color overlayBgColor7() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 93, keyName = "overlayDuration7", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList7) default int overlayDuration7() { return 0; }
 
-	// Notification list 8 (base=87)
-	@ConfigSection(name = "Notification list 8", description = "Notification list 8 settings.", position = 87, closedByDefault = true)
+	// Notification list 8 (base=94)
+	@ConfigSection(name = "Notification list 8", description = "Notification list 8 settings.", position = 94, closedByDefault = true)
 	String notificationList8 = "notificationList8";
-	@ConfigItem(position = 88, keyName = "listAlias8", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList8) default String listAlias8() { return ""; }
-	@ConfigItem(position = 89, keyName = "notificationWords8", name = NAME_WORDS, description = DESC_WORDS, section = notificationList8) default String notificationWords8() { return ""; }
-	@ConfigItem(position = 90, keyName = "notificationRegex8", name = NAME_REGEX, description = DESC_REGEX, section = notificationList8) default String notificationRegex8() { return ""; }
-	@ConfigItem(position = 91, keyName = "notificationEnabled8", name = "Enable notification list 8", description = "", section = notificationList8) default Notification notificationEnabled8() { return Notification.OFF; }
-	@ConfigItem(position = 92, keyName = "overlayText8", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList8) default String overlayText8() { return ""; }
-	@Alpha @ConfigItem(position = 93, keyName = "overlayColor8", name = "Text color", description = "Color of the overlay text.", section = notificationList8) default Color overlayColor8() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 94, keyName = "overlaySize8", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList8) default int overlaySize8() { return 16; }
-	@ConfigItem(position = 95, keyName = "overlayX8", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList8) default int overlayX8() { return 0; }
-	@ConfigItem(position = 96, keyName = "overlayY8", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList8) default int overlayY8() { return 0; }
-	@Alpha @ConfigItem(position = 97, keyName = "overlayBgColor8", name = "Background color", description = "Background color behind the overlay text.", section = notificationList8) default Color overlayBgColor8() { return Color.BLACK; }
+	@ConfigItem(position = 95, keyName = "listAlias8", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList8) default String listAlias8() { return ""; }
+	@ConfigItem(position = 96, keyName = "notificationWords8", name = NAME_WORDS, description = DESC_WORDS, section = notificationList8) default String notificationWords8() { return ""; }
+	@ConfigItem(position = 97, keyName = "notificationRegex8", name = NAME_REGEX, description = DESC_REGEX, section = notificationList8) default String notificationRegex8() { return ""; }
+	@ConfigItem(position = 98, keyName = "notificationEnabled8", name = "Enable notification list 8", description = "", section = notificationList8) default Notification notificationEnabled8() { return Notification.OFF; }
+	@ConfigItem(position = 99, keyName = "overlayText8", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList8) default String overlayText8() { return ""; }
+	@Alpha @ConfigItem(position = 100, keyName = "overlayColor8", name = "Text color", description = "Color of the overlay text.", section = notificationList8) default Color overlayColor8() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 101, keyName = "overlaySize8", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList8) default int overlaySize8() { return 16; }
+	@ConfigItem(position = 102, keyName = "overlayX8", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList8) default int overlayX8() { return 0; }
+	@ConfigItem(position = 103, keyName = "overlayY8", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList8) default int overlayY8() { return 0; }
+	@Alpha @ConfigItem(position = 104, keyName = "overlayBgColor8", name = "Background color", description = "Background color behind the overlay text.", section = notificationList8) default Color overlayBgColor8() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 105, keyName = "overlayDuration8", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList8) default int overlayDuration8() { return 0; }
 
-	// Notification list 9 (base=98)
-	@ConfigSection(name = "Notification list 9", description = "Notification list 9 settings.", position = 98, closedByDefault = true)
+	// Notification list 9 (base=106)
+	@ConfigSection(name = "Notification list 9", description = "Notification list 9 settings.", position = 106, closedByDefault = true)
 	String notificationList9 = "notificationList9";
-	@ConfigItem(position = 99, keyName = "listAlias9", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList9) default String listAlias9() { return ""; }
-	@ConfigItem(position = 100, keyName = "notificationWords9", name = NAME_WORDS, description = DESC_WORDS, section = notificationList9) default String notificationWords9() { return ""; }
-	@ConfigItem(position = 101, keyName = "notificationRegex9", name = NAME_REGEX, description = DESC_REGEX, section = notificationList9) default String notificationRegex9() { return ""; }
-	@ConfigItem(position = 102, keyName = "notificationEnabled9", name = "Enable notification list 9", description = "", section = notificationList9) default Notification notificationEnabled9() { return Notification.OFF; }
-	@ConfigItem(position = 103, keyName = "overlayText9", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList9) default String overlayText9() { return ""; }
-	@Alpha @ConfigItem(position = 104, keyName = "overlayColor9", name = "Text color", description = "Color of the overlay text.", section = notificationList9) default Color overlayColor9() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 105, keyName = "overlaySize9", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList9) default int overlaySize9() { return 16; }
-	@ConfigItem(position = 106, keyName = "overlayX9", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList9) default int overlayX9() { return 0; }
-	@ConfigItem(position = 107, keyName = "overlayY9", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList9) default int overlayY9() { return 0; }
-	@Alpha @ConfigItem(position = 108, keyName = "overlayBgColor9", name = "Background color", description = "Background color behind the overlay text.", section = notificationList9) default Color overlayBgColor9() { return Color.BLACK; }
+	@ConfigItem(position = 107, keyName = "listAlias9", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList9) default String listAlias9() { return ""; }
+	@ConfigItem(position = 108, keyName = "notificationWords9", name = NAME_WORDS, description = DESC_WORDS, section = notificationList9) default String notificationWords9() { return ""; }
+	@ConfigItem(position = 109, keyName = "notificationRegex9", name = NAME_REGEX, description = DESC_REGEX, section = notificationList9) default String notificationRegex9() { return ""; }
+	@ConfigItem(position = 110, keyName = "notificationEnabled9", name = "Enable notification list 9", description = "", section = notificationList9) default Notification notificationEnabled9() { return Notification.OFF; }
+	@ConfigItem(position = 111, keyName = "overlayText9", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList9) default String overlayText9() { return ""; }
+	@Alpha @ConfigItem(position = 112, keyName = "overlayColor9", name = "Text color", description = "Color of the overlay text.", section = notificationList9) default Color overlayColor9() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 113, keyName = "overlaySize9", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList9) default int overlaySize9() { return 16; }
+	@ConfigItem(position = 114, keyName = "overlayX9", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList9) default int overlayX9() { return 0; }
+	@ConfigItem(position = 115, keyName = "overlayY9", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList9) default int overlayY9() { return 0; }
+	@Alpha @ConfigItem(position = 116, keyName = "overlayBgColor9", name = "Background color", description = "Background color behind the overlay text.", section = notificationList9) default Color overlayBgColor9() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 117, keyName = "overlayDuration9", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList9) default int overlayDuration9() { return 0; }
 
-	// Notification list 10 (base=109)
-	@ConfigSection(name = "Notification list 10", description = "Notification list 10 settings.", position = 109, closedByDefault = true)
+	// Notification list 10 (base=118)
+	@ConfigSection(name = "Notification list 10", description = "Notification list 10 settings.", position = 118, closedByDefault = true)
 	String notificationList10 = "notificationList10";
-	@ConfigItem(position = 110, keyName = "listAlias10", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList10) default String listAlias10() { return ""; }
-	@ConfigItem(position = 111, keyName = "notificationWords10", name = NAME_WORDS, description = DESC_WORDS, section = notificationList10) default String notificationWords10() { return ""; }
-	@ConfigItem(position = 112, keyName = "notificationRegex10", name = NAME_REGEX, description = DESC_REGEX, section = notificationList10) default String notificationRegex10() { return ""; }
-	@ConfigItem(position = 113, keyName = "notificationEnabled10", name = "Enable notification list 10", description = "", section = notificationList10) default Notification notificationEnabled10() { return Notification.OFF; }
-	@ConfigItem(position = 114, keyName = "overlayText10", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList10) default String overlayText10() { return ""; }
-	@Alpha @ConfigItem(position = 115, keyName = "overlayColor10", name = "Text color", description = "Color of the overlay text.", section = notificationList10) default Color overlayColor10() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 116, keyName = "overlaySize10", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList10) default int overlaySize10() { return 16; }
-	@ConfigItem(position = 117, keyName = "overlayX10", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList10) default int overlayX10() { return 0; }
-	@ConfigItem(position = 118, keyName = "overlayY10", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList10) default int overlayY10() { return 0; }
-	@Alpha @ConfigItem(position = 119, keyName = "overlayBgColor10", name = "Background color", description = "Background color behind the overlay text.", section = notificationList10) default Color overlayBgColor10() { return Color.BLACK; }
+	@ConfigItem(position = 119, keyName = "listAlias10", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList10) default String listAlias10() { return ""; }
+	@ConfigItem(position = 120, keyName = "notificationWords10", name = NAME_WORDS, description = DESC_WORDS, section = notificationList10) default String notificationWords10() { return ""; }
+	@ConfigItem(position = 121, keyName = "notificationRegex10", name = NAME_REGEX, description = DESC_REGEX, section = notificationList10) default String notificationRegex10() { return ""; }
+	@ConfigItem(position = 122, keyName = "notificationEnabled10", name = "Enable notification list 10", description = "", section = notificationList10) default Notification notificationEnabled10() { return Notification.OFF; }
+	@ConfigItem(position = 123, keyName = "overlayText10", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList10) default String overlayText10() { return ""; }
+	@Alpha @ConfigItem(position = 124, keyName = "overlayColor10", name = "Text color", description = "Color of the overlay text.", section = notificationList10) default Color overlayColor10() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 125, keyName = "overlaySize10", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList10) default int overlaySize10() { return 16; }
+	@ConfigItem(position = 126, keyName = "overlayX10", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList10) default int overlayX10() { return 0; }
+	@ConfigItem(position = 127, keyName = "overlayY10", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList10) default int overlayY10() { return 0; }
+	@Alpha @ConfigItem(position = 128, keyName = "overlayBgColor10", name = "Background color", description = "Background color behind the overlay text.", section = notificationList10) default Color overlayBgColor10() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 129, keyName = "overlayDuration10", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList10) default int overlayDuration10() { return 0; }
 
-	// Notification list 11 (base=120)
-	@ConfigSection(name = "Notification list 11", description = "Notification list 11 settings.", position = 120, closedByDefault = true)
+	// Notification list 11 (base=130)
+	@ConfigSection(name = "Notification list 11", description = "Notification list 11 settings.", position = 130, closedByDefault = true)
 	String notificationList11 = "notificationList11";
-	@ConfigItem(position = 121, keyName = "listAlias11", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList11) default String listAlias11() { return ""; }
-	@ConfigItem(position = 122, keyName = "notificationWords11", name = NAME_WORDS, description = DESC_WORDS, section = notificationList11) default String notificationWords11() { return ""; }
-	@ConfigItem(position = 123, keyName = "notificationRegex11", name = NAME_REGEX, description = DESC_REGEX, section = notificationList11) default String notificationRegex11() { return ""; }
-	@ConfigItem(position = 124, keyName = "notificationEnabled11", name = "Enable notification list 11", description = "", section = notificationList11) default Notification notificationEnabled11() { return Notification.OFF; }
-	@ConfigItem(position = 125, keyName = "overlayText11", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList11) default String overlayText11() { return ""; }
-	@Alpha @ConfigItem(position = 126, keyName = "overlayColor11", name = "Text color", description = "Color of the overlay text.", section = notificationList11) default Color overlayColor11() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 127, keyName = "overlaySize11", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList11) default int overlaySize11() { return 16; }
-	@ConfigItem(position = 128, keyName = "overlayX11", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList11) default int overlayX11() { return 0; }
-	@ConfigItem(position = 129, keyName = "overlayY11", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList11) default int overlayY11() { return 0; }
-	@Alpha @ConfigItem(position = 130, keyName = "overlayBgColor11", name = "Background color", description = "Background color behind the overlay text.", section = notificationList11) default Color overlayBgColor11() { return Color.BLACK; }
+	@ConfigItem(position = 131, keyName = "listAlias11", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList11) default String listAlias11() { return ""; }
+	@ConfigItem(position = 132, keyName = "notificationWords11", name = NAME_WORDS, description = DESC_WORDS, section = notificationList11) default String notificationWords11() { return ""; }
+	@ConfigItem(position = 133, keyName = "notificationRegex11", name = NAME_REGEX, description = DESC_REGEX, section = notificationList11) default String notificationRegex11() { return ""; }
+	@ConfigItem(position = 134, keyName = "notificationEnabled11", name = "Enable notification list 11", description = "", section = notificationList11) default Notification notificationEnabled11() { return Notification.OFF; }
+	@ConfigItem(position = 135, keyName = "overlayText11", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList11) default String overlayText11() { return ""; }
+	@Alpha @ConfigItem(position = 136, keyName = "overlayColor11", name = "Text color", description = "Color of the overlay text.", section = notificationList11) default Color overlayColor11() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 137, keyName = "overlaySize11", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList11) default int overlaySize11() { return 16; }
+	@ConfigItem(position = 138, keyName = "overlayX11", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList11) default int overlayX11() { return 0; }
+	@ConfigItem(position = 139, keyName = "overlayY11", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList11) default int overlayY11() { return 0; }
+	@Alpha @ConfigItem(position = 140, keyName = "overlayBgColor11", name = "Background color", description = "Background color behind the overlay text.", section = notificationList11) default Color overlayBgColor11() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 141, keyName = "overlayDuration11", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList11) default int overlayDuration11() { return 0; }
 
-	// Notification list 12 (base=131)
-	@ConfigSection(name = "Notification list 12", description = "Notification list 12 settings.", position = 131, closedByDefault = true)
+	// Notification list 12 (base=142)
+	@ConfigSection(name = "Notification list 12", description = "Notification list 12 settings.", position = 142, closedByDefault = true)
 	String notificationList12 = "notificationList12";
-	@ConfigItem(position = 132, keyName = "listAlias12", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList12) default String listAlias12() { return ""; }
-	@ConfigItem(position = 133, keyName = "notificationWords12", name = NAME_WORDS, description = DESC_WORDS, section = notificationList12) default String notificationWords12() { return ""; }
-	@ConfigItem(position = 134, keyName = "notificationRegex12", name = NAME_REGEX, description = DESC_REGEX, section = notificationList12) default String notificationRegex12() { return ""; }
-	@ConfigItem(position = 135, keyName = "notificationEnabled12", name = "Enable notification list 12", description = "", section = notificationList12) default Notification notificationEnabled12() { return Notification.OFF; }
-	@ConfigItem(position = 136, keyName = "overlayText12", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList12) default String overlayText12() { return ""; }
-	@Alpha @ConfigItem(position = 137, keyName = "overlayColor12", name = "Text color", description = "Color of the overlay text.", section = notificationList12) default Color overlayColor12() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 138, keyName = "overlaySize12", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList12) default int overlaySize12() { return 16; }
-	@ConfigItem(position = 139, keyName = "overlayX12", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList12) default int overlayX12() { return 0; }
-	@ConfigItem(position = 140, keyName = "overlayY12", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList12) default int overlayY12() { return 0; }
-	@Alpha @ConfigItem(position = 141, keyName = "overlayBgColor12", name = "Background color", description = "Background color behind the overlay text.", section = notificationList12) default Color overlayBgColor12() { return Color.BLACK; }
+	@ConfigItem(position = 143, keyName = "listAlias12", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList12) default String listAlias12() { return ""; }
+	@ConfigItem(position = 144, keyName = "notificationWords12", name = NAME_WORDS, description = DESC_WORDS, section = notificationList12) default String notificationWords12() { return ""; }
+	@ConfigItem(position = 145, keyName = "notificationRegex12", name = NAME_REGEX, description = DESC_REGEX, section = notificationList12) default String notificationRegex12() { return ""; }
+	@ConfigItem(position = 146, keyName = "notificationEnabled12", name = "Enable notification list 12", description = "", section = notificationList12) default Notification notificationEnabled12() { return Notification.OFF; }
+	@ConfigItem(position = 147, keyName = "overlayText12", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList12) default String overlayText12() { return ""; }
+	@Alpha @ConfigItem(position = 148, keyName = "overlayColor12", name = "Text color", description = "Color of the overlay text.", section = notificationList12) default Color overlayColor12() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 149, keyName = "overlaySize12", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList12) default int overlaySize12() { return 16; }
+	@ConfigItem(position = 150, keyName = "overlayX12", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList12) default int overlayX12() { return 0; }
+	@ConfigItem(position = 151, keyName = "overlayY12", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList12) default int overlayY12() { return 0; }
+	@Alpha @ConfigItem(position = 152, keyName = "overlayBgColor12", name = "Background color", description = "Background color behind the overlay text.", section = notificationList12) default Color overlayBgColor12() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 153, keyName = "overlayDuration12", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList12) default int overlayDuration12() { return 0; }
 
-	// Notification list 13 (base=142)
-	@ConfigSection(name = "Notification list 13", description = "Notification list 13 settings.", position = 142, closedByDefault = true)
+	// Notification list 13 (base=154)
+	@ConfigSection(name = "Notification list 13", description = "Notification list 13 settings.", position = 154, closedByDefault = true)
 	String notificationList13 = "notificationList13";
-	@ConfigItem(position = 143, keyName = "listAlias13", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList13) default String listAlias13() { return ""; }
-	@ConfigItem(position = 144, keyName = "notificationWords13", name = NAME_WORDS, description = DESC_WORDS, section = notificationList13) default String notificationWords13() { return ""; }
-	@ConfigItem(position = 145, keyName = "notificationRegex13", name = NAME_REGEX, description = DESC_REGEX, section = notificationList13) default String notificationRegex13() { return ""; }
-	@ConfigItem(position = 146, keyName = "notificationEnabled13", name = "Enable notification list 13", description = "", section = notificationList13) default Notification notificationEnabled13() { return Notification.OFF; }
-	@ConfigItem(position = 147, keyName = "overlayText13", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList13) default String overlayText13() { return ""; }
-	@Alpha @ConfigItem(position = 148, keyName = "overlayColor13", name = "Text color", description = "Color of the overlay text.", section = notificationList13) default Color overlayColor13() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 149, keyName = "overlaySize13", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList13) default int overlaySize13() { return 16; }
-	@ConfigItem(position = 150, keyName = "overlayX13", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList13) default int overlayX13() { return 0; }
-	@ConfigItem(position = 151, keyName = "overlayY13", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList13) default int overlayY13() { return 0; }
-	@Alpha @ConfigItem(position = 152, keyName = "overlayBgColor13", name = "Background color", description = "Background color behind the overlay text.", section = notificationList13) default Color overlayBgColor13() { return Color.BLACK; }
+	@ConfigItem(position = 155, keyName = "listAlias13", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList13) default String listAlias13() { return ""; }
+	@ConfigItem(position = 156, keyName = "notificationWords13", name = NAME_WORDS, description = DESC_WORDS, section = notificationList13) default String notificationWords13() { return ""; }
+	@ConfigItem(position = 157, keyName = "notificationRegex13", name = NAME_REGEX, description = DESC_REGEX, section = notificationList13) default String notificationRegex13() { return ""; }
+	@ConfigItem(position = 158, keyName = "notificationEnabled13", name = "Enable notification list 13", description = "", section = notificationList13) default Notification notificationEnabled13() { return Notification.OFF; }
+	@ConfigItem(position = 159, keyName = "overlayText13", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList13) default String overlayText13() { return ""; }
+	@Alpha @ConfigItem(position = 160, keyName = "overlayColor13", name = "Text color", description = "Color of the overlay text.", section = notificationList13) default Color overlayColor13() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 161, keyName = "overlaySize13", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList13) default int overlaySize13() { return 16; }
+	@ConfigItem(position = 162, keyName = "overlayX13", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList13) default int overlayX13() { return 0; }
+	@ConfigItem(position = 163, keyName = "overlayY13", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList13) default int overlayY13() { return 0; }
+	@Alpha @ConfigItem(position = 164, keyName = "overlayBgColor13", name = "Background color", description = "Background color behind the overlay text.", section = notificationList13) default Color overlayBgColor13() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 165, keyName = "overlayDuration13", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList13) default int overlayDuration13() { return 0; }
 
-	// Notification list 14 (base=153)
-	@ConfigSection(name = "Notification list 14", description = "Notification list 14 settings.", position = 153, closedByDefault = true)
+	// Notification list 14 (base=166)
+	@ConfigSection(name = "Notification list 14", description = "Notification list 14 settings.", position = 166, closedByDefault = true)
 	String notificationList14 = "notificationList14";
-	@ConfigItem(position = 154, keyName = "listAlias14", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList14) default String listAlias14() { return ""; }
-	@ConfigItem(position = 155, keyName = "notificationWords14", name = NAME_WORDS, description = DESC_WORDS, section = notificationList14) default String notificationWords14() { return ""; }
-	@ConfigItem(position = 156, keyName = "notificationRegex14", name = NAME_REGEX, description = DESC_REGEX, section = notificationList14) default String notificationRegex14() { return ""; }
-	@ConfigItem(position = 157, keyName = "notificationEnabled14", name = "Enable notification list 14", description = "", section = notificationList14) default Notification notificationEnabled14() { return Notification.OFF; }
-	@ConfigItem(position = 158, keyName = "overlayText14", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList14) default String overlayText14() { return ""; }
-	@Alpha @ConfigItem(position = 159, keyName = "overlayColor14", name = "Text color", description = "Color of the overlay text.", section = notificationList14) default Color overlayColor14() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 160, keyName = "overlaySize14", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList14) default int overlaySize14() { return 16; }
-	@ConfigItem(position = 161, keyName = "overlayX14", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList14) default int overlayX14() { return 0; }
-	@ConfigItem(position = 162, keyName = "overlayY14", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList14) default int overlayY14() { return 0; }
-	@Alpha @ConfigItem(position = 163, keyName = "overlayBgColor14", name = "Background color", description = "Background color behind the overlay text.", section = notificationList14) default Color overlayBgColor14() { return Color.BLACK; }
+	@ConfigItem(position = 167, keyName = "listAlias14", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList14) default String listAlias14() { return ""; }
+	@ConfigItem(position = 168, keyName = "notificationWords14", name = NAME_WORDS, description = DESC_WORDS, section = notificationList14) default String notificationWords14() { return ""; }
+	@ConfigItem(position = 169, keyName = "notificationRegex14", name = NAME_REGEX, description = DESC_REGEX, section = notificationList14) default String notificationRegex14() { return ""; }
+	@ConfigItem(position = 170, keyName = "notificationEnabled14", name = "Enable notification list 14", description = "", section = notificationList14) default Notification notificationEnabled14() { return Notification.OFF; }
+	@ConfigItem(position = 171, keyName = "overlayText14", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList14) default String overlayText14() { return ""; }
+	@Alpha @ConfigItem(position = 172, keyName = "overlayColor14", name = "Text color", description = "Color of the overlay text.", section = notificationList14) default Color overlayColor14() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 173, keyName = "overlaySize14", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList14) default int overlaySize14() { return 16; }
+	@ConfigItem(position = 174, keyName = "overlayX14", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList14) default int overlayX14() { return 0; }
+	@ConfigItem(position = 175, keyName = "overlayY14", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList14) default int overlayY14() { return 0; }
+	@Alpha @ConfigItem(position = 176, keyName = "overlayBgColor14", name = "Background color", description = "Background color behind the overlay text.", section = notificationList14) default Color overlayBgColor14() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 177, keyName = "overlayDuration14", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList14) default int overlayDuration14() { return 0; }
 
-	// Notification list 15 (base=164)
-	@ConfigSection(name = "Notification list 15", description = "Notification list 15 settings.", position = 164, closedByDefault = true)
+	// Notification list 15 (base=178)
+	@ConfigSection(name = "Notification list 15", description = "Notification list 15 settings.", position = 178, closedByDefault = true)
 	String notificationList15 = "notificationList15";
-	@ConfigItem(position = 165, keyName = "listAlias15", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList15) default String listAlias15() { return ""; }
-	@ConfigItem(position = 166, keyName = "notificationWords15", name = NAME_WORDS, description = DESC_WORDS, section = notificationList15) default String notificationWords15() { return ""; }
-	@ConfigItem(position = 167, keyName = "notificationRegex15", name = NAME_REGEX, description = DESC_REGEX, section = notificationList15) default String notificationRegex15() { return ""; }
-	@ConfigItem(position = 168, keyName = "notificationEnabled15", name = "Enable notification list 15", description = "", section = notificationList15) default Notification notificationEnabled15() { return Notification.OFF; }
-	@ConfigItem(position = 169, keyName = "overlayText15", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList15) default String overlayText15() { return ""; }
-	@Alpha @ConfigItem(position = 170, keyName = "overlayColor15", name = "Text color", description = "Color of the overlay text.", section = notificationList15) default Color overlayColor15() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 171, keyName = "overlaySize15", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList15) default int overlaySize15() { return 16; }
-	@ConfigItem(position = 172, keyName = "overlayX15", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList15) default int overlayX15() { return 0; }
-	@ConfigItem(position = 173, keyName = "overlayY15", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList15) default int overlayY15() { return 0; }
-	@Alpha @ConfigItem(position = 174, keyName = "overlayBgColor15", name = "Background color", description = "Background color behind the overlay text.", section = notificationList15) default Color overlayBgColor15() { return Color.BLACK; }
+	@ConfigItem(position = 179, keyName = "listAlias15", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList15) default String listAlias15() { return ""; }
+	@ConfigItem(position = 180, keyName = "notificationWords15", name = NAME_WORDS, description = DESC_WORDS, section = notificationList15) default String notificationWords15() { return ""; }
+	@ConfigItem(position = 181, keyName = "notificationRegex15", name = NAME_REGEX, description = DESC_REGEX, section = notificationList15) default String notificationRegex15() { return ""; }
+	@ConfigItem(position = 182, keyName = "notificationEnabled15", name = "Enable notification list 15", description = "", section = notificationList15) default Notification notificationEnabled15() { return Notification.OFF; }
+	@ConfigItem(position = 183, keyName = "overlayText15", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList15) default String overlayText15() { return ""; }
+	@Alpha @ConfigItem(position = 184, keyName = "overlayColor15", name = "Text color", description = "Color of the overlay text.", section = notificationList15) default Color overlayColor15() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 185, keyName = "overlaySize15", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList15) default int overlaySize15() { return 16; }
+	@ConfigItem(position = 186, keyName = "overlayX15", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList15) default int overlayX15() { return 0; }
+	@ConfigItem(position = 187, keyName = "overlayY15", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList15) default int overlayY15() { return 0; }
+	@Alpha @ConfigItem(position = 188, keyName = "overlayBgColor15", name = "Background color", description = "Background color behind the overlay text.", section = notificationList15) default Color overlayBgColor15() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 189, keyName = "overlayDuration15", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList15) default int overlayDuration15() { return 0; }
 
-	// Notification list 16 (base=175)
-	@ConfigSection(name = "Notification list 16", description = "Notification list 16 settings.", position = 175, closedByDefault = true)
+	// Notification list 16 (base=190)
+	@ConfigSection(name = "Notification list 16", description = "Notification list 16 settings.", position = 190, closedByDefault = true)
 	String notificationList16 = "notificationList16";
-	@ConfigItem(position = 176, keyName = "listAlias16", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList16) default String listAlias16() { return ""; }
-	@ConfigItem(position = 177, keyName = "notificationWords16", name = NAME_WORDS, description = DESC_WORDS, section = notificationList16) default String notificationWords16() { return ""; }
-	@ConfigItem(position = 178, keyName = "notificationRegex16", name = NAME_REGEX, description = DESC_REGEX, section = notificationList16) default String notificationRegex16() { return ""; }
-	@ConfigItem(position = 179, keyName = "notificationEnabled16", name = "Enable notification list 16", description = "", section = notificationList16) default Notification notificationEnabled16() { return Notification.OFF; }
-	@ConfigItem(position = 180, keyName = "overlayText16", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList16) default String overlayText16() { return ""; }
-	@Alpha @ConfigItem(position = 181, keyName = "overlayColor16", name = "Text color", description = "Color of the overlay text.", section = notificationList16) default Color overlayColor16() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 182, keyName = "overlaySize16", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList16) default int overlaySize16() { return 16; }
-	@ConfigItem(position = 183, keyName = "overlayX16", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList16) default int overlayX16() { return 0; }
-	@ConfigItem(position = 184, keyName = "overlayY16", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList16) default int overlayY16() { return 0; }
-	@Alpha @ConfigItem(position = 185, keyName = "overlayBgColor16", name = "Background color", description = "Background color behind the overlay text.", section = notificationList16) default Color overlayBgColor16() { return Color.BLACK; }
+	@ConfigItem(position = 191, keyName = "listAlias16", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList16) default String listAlias16() { return ""; }
+	@ConfigItem(position = 192, keyName = "notificationWords16", name = NAME_WORDS, description = DESC_WORDS, section = notificationList16) default String notificationWords16() { return ""; }
+	@ConfigItem(position = 193, keyName = "notificationRegex16", name = NAME_REGEX, description = DESC_REGEX, section = notificationList16) default String notificationRegex16() { return ""; }
+	@ConfigItem(position = 194, keyName = "notificationEnabled16", name = "Enable notification list 16", description = "", section = notificationList16) default Notification notificationEnabled16() { return Notification.OFF; }
+	@ConfigItem(position = 195, keyName = "overlayText16", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList16) default String overlayText16() { return ""; }
+	@Alpha @ConfigItem(position = 196, keyName = "overlayColor16", name = "Text color", description = "Color of the overlay text.", section = notificationList16) default Color overlayColor16() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 197, keyName = "overlaySize16", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList16) default int overlaySize16() { return 16; }
+	@ConfigItem(position = 198, keyName = "overlayX16", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList16) default int overlayX16() { return 0; }
+	@ConfigItem(position = 199, keyName = "overlayY16", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList16) default int overlayY16() { return 0; }
+	@Alpha @ConfigItem(position = 200, keyName = "overlayBgColor16", name = "Background color", description = "Background color behind the overlay text.", section = notificationList16) default Color overlayBgColor16() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 201, keyName = "overlayDuration16", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList16) default int overlayDuration16() { return 0; }
 
-	// Notification list 17 (base=186)
-	@ConfigSection(name = "Notification list 17", description = "Notification list 17 settings.", position = 186, closedByDefault = true)
+	// Notification list 17 (base=202)
+	@ConfigSection(name = "Notification list 17", description = "Notification list 17 settings.", position = 202, closedByDefault = true)
 	String notificationList17 = "notificationList17";
-	@ConfigItem(position = 187, keyName = "listAlias17", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList17) default String listAlias17() { return ""; }
-	@ConfigItem(position = 188, keyName = "notificationWords17", name = NAME_WORDS, description = DESC_WORDS, section = notificationList17) default String notificationWords17() { return ""; }
-	@ConfigItem(position = 189, keyName = "notificationRegex17", name = NAME_REGEX, description = DESC_REGEX, section = notificationList17) default String notificationRegex17() { return ""; }
-	@ConfigItem(position = 190, keyName = "notificationEnabled17", name = "Enable notification list 17", description = "", section = notificationList17) default Notification notificationEnabled17() { return Notification.OFF; }
-	@ConfigItem(position = 191, keyName = "overlayText17", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList17) default String overlayText17() { return ""; }
-	@Alpha @ConfigItem(position = 192, keyName = "overlayColor17", name = "Text color", description = "Color of the overlay text.", section = notificationList17) default Color overlayColor17() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 193, keyName = "overlaySize17", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList17) default int overlaySize17() { return 16; }
-	@ConfigItem(position = 194, keyName = "overlayX17", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList17) default int overlayX17() { return 0; }
-	@ConfigItem(position = 195, keyName = "overlayY17", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList17) default int overlayY17() { return 0; }
-	@Alpha @ConfigItem(position = 196, keyName = "overlayBgColor17", name = "Background color", description = "Background color behind the overlay text.", section = notificationList17) default Color overlayBgColor17() { return Color.BLACK; }
+	@ConfigItem(position = 203, keyName = "listAlias17", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList17) default String listAlias17() { return ""; }
+	@ConfigItem(position = 204, keyName = "notificationWords17", name = NAME_WORDS, description = DESC_WORDS, section = notificationList17) default String notificationWords17() { return ""; }
+	@ConfigItem(position = 205, keyName = "notificationRegex17", name = NAME_REGEX, description = DESC_REGEX, section = notificationList17) default String notificationRegex17() { return ""; }
+	@ConfigItem(position = 206, keyName = "notificationEnabled17", name = "Enable notification list 17", description = "", section = notificationList17) default Notification notificationEnabled17() { return Notification.OFF; }
+	@ConfigItem(position = 207, keyName = "overlayText17", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList17) default String overlayText17() { return ""; }
+	@Alpha @ConfigItem(position = 208, keyName = "overlayColor17", name = "Text color", description = "Color of the overlay text.", section = notificationList17) default Color overlayColor17() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 209, keyName = "overlaySize17", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList17) default int overlaySize17() { return 16; }
+	@ConfigItem(position = 210, keyName = "overlayX17", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList17) default int overlayX17() { return 0; }
+	@ConfigItem(position = 211, keyName = "overlayY17", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList17) default int overlayY17() { return 0; }
+	@Alpha @ConfigItem(position = 212, keyName = "overlayBgColor17", name = "Background color", description = "Background color behind the overlay text.", section = notificationList17) default Color overlayBgColor17() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 213, keyName = "overlayDuration17", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList17) default int overlayDuration17() { return 0; }
 
-	// Notification list 18 (base=197)
-	@ConfigSection(name = "Notification list 18", description = "Notification list 18 settings.", position = 197, closedByDefault = true)
+	// Notification list 18 (base=214)
+	@ConfigSection(name = "Notification list 18", description = "Notification list 18 settings.", position = 214, closedByDefault = true)
 	String notificationList18 = "notificationList18";
-	@ConfigItem(position = 198, keyName = "listAlias18", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList18) default String listAlias18() { return ""; }
-	@ConfigItem(position = 199, keyName = "notificationWords18", name = NAME_WORDS, description = DESC_WORDS, section = notificationList18) default String notificationWords18() { return ""; }
-	@ConfigItem(position = 200, keyName = "notificationRegex18", name = NAME_REGEX, description = DESC_REGEX, section = notificationList18) default String notificationRegex18() { return ""; }
-	@ConfigItem(position = 201, keyName = "notificationEnabled18", name = "Enable notification list 18", description = "", section = notificationList18) default Notification notificationEnabled18() { return Notification.OFF; }
-	@ConfigItem(position = 202, keyName = "overlayText18", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList18) default String overlayText18() { return ""; }
-	@Alpha @ConfigItem(position = 203, keyName = "overlayColor18", name = "Text color", description = "Color of the overlay text.", section = notificationList18) default Color overlayColor18() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 204, keyName = "overlaySize18", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList18) default int overlaySize18() { return 16; }
-	@ConfigItem(position = 205, keyName = "overlayX18", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList18) default int overlayX18() { return 0; }
-	@ConfigItem(position = 206, keyName = "overlayY18", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList18) default int overlayY18() { return 0; }
-	@Alpha @ConfigItem(position = 207, keyName = "overlayBgColor18", name = "Background color", description = "Background color behind the overlay text.", section = notificationList18) default Color overlayBgColor18() { return Color.BLACK; }
+	@ConfigItem(position = 215, keyName = "listAlias18", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList18) default String listAlias18() { return ""; }
+	@ConfigItem(position = 216, keyName = "notificationWords18", name = NAME_WORDS, description = DESC_WORDS, section = notificationList18) default String notificationWords18() { return ""; }
+	@ConfigItem(position = 217, keyName = "notificationRegex18", name = NAME_REGEX, description = DESC_REGEX, section = notificationList18) default String notificationRegex18() { return ""; }
+	@ConfigItem(position = 218, keyName = "notificationEnabled18", name = "Enable notification list 18", description = "", section = notificationList18) default Notification notificationEnabled18() { return Notification.OFF; }
+	@ConfigItem(position = 219, keyName = "overlayText18", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList18) default String overlayText18() { return ""; }
+	@Alpha @ConfigItem(position = 220, keyName = "overlayColor18", name = "Text color", description = "Color of the overlay text.", section = notificationList18) default Color overlayColor18() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 221, keyName = "overlaySize18", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList18) default int overlaySize18() { return 16; }
+	@ConfigItem(position = 222, keyName = "overlayX18", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList18) default int overlayX18() { return 0; }
+	@ConfigItem(position = 223, keyName = "overlayY18", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList18) default int overlayY18() { return 0; }
+	@Alpha @ConfigItem(position = 224, keyName = "overlayBgColor18", name = "Background color", description = "Background color behind the overlay text.", section = notificationList18) default Color overlayBgColor18() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 225, keyName = "overlayDuration18", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList18) default int overlayDuration18() { return 0; }
 
-	// Notification list 19 (base=208)
-	@ConfigSection(name = "Notification list 19", description = "Notification list 19 settings.", position = 208, closedByDefault = true)
+	// Notification list 19 (base=226)
+	@ConfigSection(name = "Notification list 19", description = "Notification list 19 settings.", position = 226, closedByDefault = true)
 	String notificationList19 = "notificationList19";
-	@ConfigItem(position = 209, keyName = "listAlias19", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList19) default String listAlias19() { return ""; }
-	@ConfigItem(position = 210, keyName = "notificationWords19", name = NAME_WORDS, description = DESC_WORDS, section = notificationList19) default String notificationWords19() { return ""; }
-	@ConfigItem(position = 211, keyName = "notificationRegex19", name = NAME_REGEX, description = DESC_REGEX, section = notificationList19) default String notificationRegex19() { return ""; }
-	@ConfigItem(position = 212, keyName = "notificationEnabled19", name = "Enable notification list 19", description = "", section = notificationList19) default Notification notificationEnabled19() { return Notification.OFF; }
-	@ConfigItem(position = 213, keyName = "overlayText19", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList19) default String overlayText19() { return ""; }
-	@Alpha @ConfigItem(position = 214, keyName = "overlayColor19", name = "Text color", description = "Color of the overlay text.", section = notificationList19) default Color overlayColor19() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 215, keyName = "overlaySize19", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList19) default int overlaySize19() { return 16; }
-	@ConfigItem(position = 216, keyName = "overlayX19", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList19) default int overlayX19() { return 0; }
-	@ConfigItem(position = 217, keyName = "overlayY19", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList19) default int overlayY19() { return 0; }
-	@Alpha @ConfigItem(position = 218, keyName = "overlayBgColor19", name = "Background color", description = "Background color behind the overlay text.", section = notificationList19) default Color overlayBgColor19() { return Color.BLACK; }
+	@ConfigItem(position = 227, keyName = "listAlias19", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList19) default String listAlias19() { return ""; }
+	@ConfigItem(position = 228, keyName = "notificationWords19", name = NAME_WORDS, description = DESC_WORDS, section = notificationList19) default String notificationWords19() { return ""; }
+	@ConfigItem(position = 229, keyName = "notificationRegex19", name = NAME_REGEX, description = DESC_REGEX, section = notificationList19) default String notificationRegex19() { return ""; }
+	@ConfigItem(position = 230, keyName = "notificationEnabled19", name = "Enable notification list 19", description = "", section = notificationList19) default Notification notificationEnabled19() { return Notification.OFF; }
+	@ConfigItem(position = 231, keyName = "overlayText19", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList19) default String overlayText19() { return ""; }
+	@Alpha @ConfigItem(position = 232, keyName = "overlayColor19", name = "Text color", description = "Color of the overlay text.", section = notificationList19) default Color overlayColor19() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 233, keyName = "overlaySize19", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList19) default int overlaySize19() { return 16; }
+	@ConfigItem(position = 234, keyName = "overlayX19", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList19) default int overlayX19() { return 0; }
+	@ConfigItem(position = 235, keyName = "overlayY19", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList19) default int overlayY19() { return 0; }
+	@Alpha @ConfigItem(position = 236, keyName = "overlayBgColor19", name = "Background color", description = "Background color behind the overlay text.", section = notificationList19) default Color overlayBgColor19() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 237, keyName = "overlayDuration19", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList19) default int overlayDuration19() { return 0; }
 
-	// Notification list 20 (base=219)
-	@ConfigSection(name = "Notification list 20", description = "Notification list 20 settings.", position = 219, closedByDefault = true)
+	// Notification list 20 (base=238)
+	@ConfigSection(name = "Notification list 20", description = "Notification list 20 settings.", position = 238, closedByDefault = true)
 	String notificationList20 = "notificationList20";
-	@ConfigItem(position = 220, keyName = "listAlias20", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList20) default String listAlias20() { return ""; }
-	@ConfigItem(position = 221, keyName = "notificationWords20", name = NAME_WORDS, description = DESC_WORDS, section = notificationList20) default String notificationWords20() { return ""; }
-	@ConfigItem(position = 222, keyName = "notificationRegex20", name = NAME_REGEX, description = DESC_REGEX, section = notificationList20) default String notificationRegex20() { return ""; }
-	@ConfigItem(position = 223, keyName = "notificationEnabled20", name = "Enable notification list 20", description = "", section = notificationList20) default Notification notificationEnabled20() { return Notification.OFF; }
-	@ConfigItem(position = 224, keyName = "overlayText20", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList20) default String overlayText20() { return ""; }
-	@Alpha @ConfigItem(position = 225, keyName = "overlayColor20", name = "Text color", description = "Color of the overlay text.", section = notificationList20) default Color overlayColor20() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 226, keyName = "overlaySize20", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList20) default int overlaySize20() { return 16; }
-	@ConfigItem(position = 227, keyName = "overlayX20", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList20) default int overlayX20() { return 0; }
-	@ConfigItem(position = 228, keyName = "overlayY20", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList20) default int overlayY20() { return 0; }
-	@Alpha @ConfigItem(position = 229, keyName = "overlayBgColor20", name = "Background color", description = "Background color behind the overlay text.", section = notificationList20) default Color overlayBgColor20() { return Color.BLACK; }
+	@ConfigItem(position = 239, keyName = "listAlias20", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList20) default String listAlias20() { return ""; }
+	@ConfigItem(position = 240, keyName = "notificationWords20", name = NAME_WORDS, description = DESC_WORDS, section = notificationList20) default String notificationWords20() { return ""; }
+	@ConfigItem(position = 241, keyName = "notificationRegex20", name = NAME_REGEX, description = DESC_REGEX, section = notificationList20) default String notificationRegex20() { return ""; }
+	@ConfigItem(position = 242, keyName = "notificationEnabled20", name = "Enable notification list 20", description = "", section = notificationList20) default Notification notificationEnabled20() { return Notification.OFF; }
+	@ConfigItem(position = 243, keyName = "overlayText20", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList20) default String overlayText20() { return ""; }
+	@Alpha @ConfigItem(position = 244, keyName = "overlayColor20", name = "Text color", description = "Color of the overlay text.", section = notificationList20) default Color overlayColor20() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 245, keyName = "overlaySize20", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList20) default int overlaySize20() { return 16; }
+	@ConfigItem(position = 246, keyName = "overlayX20", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList20) default int overlayX20() { return 0; }
+	@ConfigItem(position = 247, keyName = "overlayY20", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList20) default int overlayY20() { return 0; }
+	@Alpha @ConfigItem(position = 248, keyName = "overlayBgColor20", name = "Background color", description = "Background color behind the overlay text.", section = notificationList20) default Color overlayBgColor20() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 249, keyName = "overlayDuration20", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList20) default int overlayDuration20() { return 0; }
 
-	// Notification list 21 (base=230)
-	@ConfigSection(name = "Notification list 21", description = "Notification list 21 settings.", position = 230, closedByDefault = true)
+	// Notification list 21 (base=250)
+	@ConfigSection(name = "Notification list 21", description = "Notification list 21 settings.", position = 250, closedByDefault = true)
 	String notificationList21 = "notificationList21";
-	@ConfigItem(position = 231, keyName = "listAlias21", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList21) default String listAlias21() { return ""; }
-	@ConfigItem(position = 232, keyName = "notificationWords21", name = NAME_WORDS, description = DESC_WORDS, section = notificationList21) default String notificationWords21() { return ""; }
-	@ConfigItem(position = 233, keyName = "notificationRegex21", name = NAME_REGEX, description = DESC_REGEX, section = notificationList21) default String notificationRegex21() { return ""; }
-	@ConfigItem(position = 234, keyName = "notificationEnabled21", name = "Enable notification list 21", description = "", section = notificationList21) default Notification notificationEnabled21() { return Notification.OFF; }
-	@ConfigItem(position = 235, keyName = "overlayText21", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList21) default String overlayText21() { return ""; }
-	@Alpha @ConfigItem(position = 236, keyName = "overlayColor21", name = "Text color", description = "Color of the overlay text.", section = notificationList21) default Color overlayColor21() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 237, keyName = "overlaySize21", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList21) default int overlaySize21() { return 16; }
-	@ConfigItem(position = 238, keyName = "overlayX21", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList21) default int overlayX21() { return 0; }
-	@ConfigItem(position = 239, keyName = "overlayY21", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList21) default int overlayY21() { return 0; }
-	@Alpha @ConfigItem(position = 240, keyName = "overlayBgColor21", name = "Background color", description = "Background color behind the overlay text.", section = notificationList21) default Color overlayBgColor21() { return Color.BLACK; }
+	@ConfigItem(position = 251, keyName = "listAlias21", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList21) default String listAlias21() { return ""; }
+	@ConfigItem(position = 252, keyName = "notificationWords21", name = NAME_WORDS, description = DESC_WORDS, section = notificationList21) default String notificationWords21() { return ""; }
+	@ConfigItem(position = 253, keyName = "notificationRegex21", name = NAME_REGEX, description = DESC_REGEX, section = notificationList21) default String notificationRegex21() { return ""; }
+	@ConfigItem(position = 254, keyName = "notificationEnabled21", name = "Enable notification list 21", description = "", section = notificationList21) default Notification notificationEnabled21() { return Notification.OFF; }
+	@ConfigItem(position = 255, keyName = "overlayText21", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList21) default String overlayText21() { return ""; }
+	@Alpha @ConfigItem(position = 256, keyName = "overlayColor21", name = "Text color", description = "Color of the overlay text.", section = notificationList21) default Color overlayColor21() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 257, keyName = "overlaySize21", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList21) default int overlaySize21() { return 16; }
+	@ConfigItem(position = 258, keyName = "overlayX21", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList21) default int overlayX21() { return 0; }
+	@ConfigItem(position = 259, keyName = "overlayY21", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList21) default int overlayY21() { return 0; }
+	@Alpha @ConfigItem(position = 260, keyName = "overlayBgColor21", name = "Background color", description = "Background color behind the overlay text.", section = notificationList21) default Color overlayBgColor21() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 261, keyName = "overlayDuration21", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList21) default int overlayDuration21() { return 0; }
 
-	// Notification list 22 (base=241)
-	@ConfigSection(name = "Notification list 22", description = "Notification list 22 settings.", position = 241, closedByDefault = true)
+	// Notification list 22 (base=262)
+	@ConfigSection(name = "Notification list 22", description = "Notification list 22 settings.", position = 262, closedByDefault = true)
 	String notificationList22 = "notificationList22";
-	@ConfigItem(position = 242, keyName = "listAlias22", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList22) default String listAlias22() { return ""; }
-	@ConfigItem(position = 243, keyName = "notificationWords22", name = NAME_WORDS, description = DESC_WORDS, section = notificationList22) default String notificationWords22() { return ""; }
-	@ConfigItem(position = 244, keyName = "notificationRegex22", name = NAME_REGEX, description = DESC_REGEX, section = notificationList22) default String notificationRegex22() { return ""; }
-	@ConfigItem(position = 245, keyName = "notificationEnabled22", name = "Enable notification list 22", description = "", section = notificationList22) default Notification notificationEnabled22() { return Notification.OFF; }
-	@ConfigItem(position = 246, keyName = "overlayText22", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList22) default String overlayText22() { return ""; }
-	@Alpha @ConfigItem(position = 247, keyName = "overlayColor22", name = "Text color", description = "Color of the overlay text.", section = notificationList22) default Color overlayColor22() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 248, keyName = "overlaySize22", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList22) default int overlaySize22() { return 16; }
-	@ConfigItem(position = 249, keyName = "overlayX22", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList22) default int overlayX22() { return 0; }
-	@ConfigItem(position = 250, keyName = "overlayY22", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList22) default int overlayY22() { return 0; }
-	@Alpha @ConfigItem(position = 251, keyName = "overlayBgColor22", name = "Background color", description = "Background color behind the overlay text.", section = notificationList22) default Color overlayBgColor22() { return Color.BLACK; }
+	@ConfigItem(position = 263, keyName = "listAlias22", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList22) default String listAlias22() { return ""; }
+	@ConfigItem(position = 264, keyName = "notificationWords22", name = NAME_WORDS, description = DESC_WORDS, section = notificationList22) default String notificationWords22() { return ""; }
+	@ConfigItem(position = 265, keyName = "notificationRegex22", name = NAME_REGEX, description = DESC_REGEX, section = notificationList22) default String notificationRegex22() { return ""; }
+	@ConfigItem(position = 266, keyName = "notificationEnabled22", name = "Enable notification list 22", description = "", section = notificationList22) default Notification notificationEnabled22() { return Notification.OFF; }
+	@ConfigItem(position = 267, keyName = "overlayText22", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList22) default String overlayText22() { return ""; }
+	@Alpha @ConfigItem(position = 268, keyName = "overlayColor22", name = "Text color", description = "Color of the overlay text.", section = notificationList22) default Color overlayColor22() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 269, keyName = "overlaySize22", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList22) default int overlaySize22() { return 16; }
+	@ConfigItem(position = 270, keyName = "overlayX22", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList22) default int overlayX22() { return 0; }
+	@ConfigItem(position = 271, keyName = "overlayY22", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList22) default int overlayY22() { return 0; }
+	@Alpha @ConfigItem(position = 272, keyName = "overlayBgColor22", name = "Background color", description = "Background color behind the overlay text.", section = notificationList22) default Color overlayBgColor22() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 273, keyName = "overlayDuration22", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList22) default int overlayDuration22() { return 0; }
 
-	// Notification list 23 (base=252)
-	@ConfigSection(name = "Notification list 23", description = "Notification list 23 settings.", position = 252, closedByDefault = true)
+	// Notification list 23 (base=274)
+	@ConfigSection(name = "Notification list 23", description = "Notification list 23 settings.", position = 274, closedByDefault = true)
 	String notificationList23 = "notificationList23";
-	@ConfigItem(position = 253, keyName = "listAlias23", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList23) default String listAlias23() { return ""; }
-	@ConfigItem(position = 254, keyName = "notificationWords23", name = NAME_WORDS, description = DESC_WORDS, section = notificationList23) default String notificationWords23() { return ""; }
-	@ConfigItem(position = 255, keyName = "notificationRegex23", name = NAME_REGEX, description = DESC_REGEX, section = notificationList23) default String notificationRegex23() { return ""; }
-	@ConfigItem(position = 256, keyName = "notificationEnabled23", name = "Enable notification list 23", description = "", section = notificationList23) default Notification notificationEnabled23() { return Notification.OFF; }
-	@ConfigItem(position = 257, keyName = "overlayText23", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList23) default String overlayText23() { return ""; }
-	@Alpha @ConfigItem(position = 258, keyName = "overlayColor23", name = "Text color", description = "Color of the overlay text.", section = notificationList23) default Color overlayColor23() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 259, keyName = "overlaySize23", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList23) default int overlaySize23() { return 16; }
-	@ConfigItem(position = 260, keyName = "overlayX23", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList23) default int overlayX23() { return 0; }
-	@ConfigItem(position = 261, keyName = "overlayY23", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList23) default int overlayY23() { return 0; }
-	@Alpha @ConfigItem(position = 262, keyName = "overlayBgColor23", name = "Background color", description = "Background color behind the overlay text.", section = notificationList23) default Color overlayBgColor23() { return Color.BLACK; }
+	@ConfigItem(position = 275, keyName = "listAlias23", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList23) default String listAlias23() { return ""; }
+	@ConfigItem(position = 276, keyName = "notificationWords23", name = NAME_WORDS, description = DESC_WORDS, section = notificationList23) default String notificationWords23() { return ""; }
+	@ConfigItem(position = 277, keyName = "notificationRegex23", name = NAME_REGEX, description = DESC_REGEX, section = notificationList23) default String notificationRegex23() { return ""; }
+	@ConfigItem(position = 278, keyName = "notificationEnabled23", name = "Enable notification list 23", description = "", section = notificationList23) default Notification notificationEnabled23() { return Notification.OFF; }
+	@ConfigItem(position = 279, keyName = "overlayText23", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList23) default String overlayText23() { return ""; }
+	@Alpha @ConfigItem(position = 280, keyName = "overlayColor23", name = "Text color", description = "Color of the overlay text.", section = notificationList23) default Color overlayColor23() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 281, keyName = "overlaySize23", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList23) default int overlaySize23() { return 16; }
+	@ConfigItem(position = 282, keyName = "overlayX23", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList23) default int overlayX23() { return 0; }
+	@ConfigItem(position = 283, keyName = "overlayY23", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList23) default int overlayY23() { return 0; }
+	@Alpha @ConfigItem(position = 284, keyName = "overlayBgColor23", name = "Background color", description = "Background color behind the overlay text.", section = notificationList23) default Color overlayBgColor23() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 285, keyName = "overlayDuration23", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList23) default int overlayDuration23() { return 0; }
 
-	// Notification list 24 (base=263)
-	@ConfigSection(name = "Notification list 24", description = "Notification list 24 settings.", position = 263, closedByDefault = true)
+	// Notification list 24 (base=286)
+	@ConfigSection(name = "Notification list 24", description = "Notification list 24 settings.", position = 286, closedByDefault = true)
 	String notificationList24 = "notificationList24";
-	@ConfigItem(position = 264, keyName = "listAlias24", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList24) default String listAlias24() { return ""; }
-	@ConfigItem(position = 265, keyName = "notificationWords24", name = NAME_WORDS, description = DESC_WORDS, section = notificationList24) default String notificationWords24() { return ""; }
-	@ConfigItem(position = 266, keyName = "notificationRegex24", name = NAME_REGEX, description = DESC_REGEX, section = notificationList24) default String notificationRegex24() { return ""; }
-	@ConfigItem(position = 267, keyName = "notificationEnabled24", name = "Enable notification list 24", description = "", section = notificationList24) default Notification notificationEnabled24() { return Notification.OFF; }
-	@ConfigItem(position = 268, keyName = "overlayText24", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList24) default String overlayText24() { return ""; }
-	@Alpha @ConfigItem(position = 269, keyName = "overlayColor24", name = "Text color", description = "Color of the overlay text.", section = notificationList24) default Color overlayColor24() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 270, keyName = "overlaySize24", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList24) default int overlaySize24() { return 16; }
-	@ConfigItem(position = 271, keyName = "overlayX24", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList24) default int overlayX24() { return 0; }
-	@ConfigItem(position = 272, keyName = "overlayY24", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList24) default int overlayY24() { return 0; }
-	@Alpha @ConfigItem(position = 273, keyName = "overlayBgColor24", name = "Background color", description = "Background color behind the overlay text.", section = notificationList24) default Color overlayBgColor24() { return Color.BLACK; }
+	@ConfigItem(position = 287, keyName = "listAlias24", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList24) default String listAlias24() { return ""; }
+	@ConfigItem(position = 288, keyName = "notificationWords24", name = NAME_WORDS, description = DESC_WORDS, section = notificationList24) default String notificationWords24() { return ""; }
+	@ConfigItem(position = 289, keyName = "notificationRegex24", name = NAME_REGEX, description = DESC_REGEX, section = notificationList24) default String notificationRegex24() { return ""; }
+	@ConfigItem(position = 290, keyName = "notificationEnabled24", name = "Enable notification list 24", description = "", section = notificationList24) default Notification notificationEnabled24() { return Notification.OFF; }
+	@ConfigItem(position = 291, keyName = "overlayText24", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList24) default String overlayText24() { return ""; }
+	@Alpha @ConfigItem(position = 292, keyName = "overlayColor24", name = "Text color", description = "Color of the overlay text.", section = notificationList24) default Color overlayColor24() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 293, keyName = "overlaySize24", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList24) default int overlaySize24() { return 16; }
+	@ConfigItem(position = 294, keyName = "overlayX24", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList24) default int overlayX24() { return 0; }
+	@ConfigItem(position = 295, keyName = "overlayY24", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList24) default int overlayY24() { return 0; }
+	@Alpha @ConfigItem(position = 296, keyName = "overlayBgColor24", name = "Background color", description = "Background color behind the overlay text.", section = notificationList24) default Color overlayBgColor24() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 297, keyName = "overlayDuration24", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList24) default int overlayDuration24() { return 0; }
 
-	// Notification list 25 (base=274)
-	@ConfigSection(name = "Notification list 25", description = "Notification list 25 settings.", position = 274, closedByDefault = true)
+	// Notification list 25 (base=298)
+	@ConfigSection(name = "Notification list 25", description = "Notification list 25 settings.", position = 298, closedByDefault = true)
 	String notificationList25 = "notificationList25";
-	@ConfigItem(position = 275, keyName = "listAlias25", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList25) default String listAlias25() { return ""; }
-	@ConfigItem(position = 276, keyName = "notificationWords25", name = NAME_WORDS, description = DESC_WORDS, section = notificationList25) default String notificationWords25() { return ""; }
-	@ConfigItem(position = 277, keyName = "notificationRegex25", name = NAME_REGEX, description = DESC_REGEX, section = notificationList25) default String notificationRegex25() { return ""; }
-	@ConfigItem(position = 278, keyName = "notificationEnabled25", name = "Enable notification list 25", description = "", section = notificationList25) default Notification notificationEnabled25() { return Notification.OFF; }
-	@ConfigItem(position = 279, keyName = "overlayText25", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList25) default String overlayText25() { return ""; }
-	@Alpha @ConfigItem(position = 280, keyName = "overlayColor25", name = "Text color", description = "Color of the overlay text.", section = notificationList25) default Color overlayColor25() { return Color.WHITE; }
-	@Range(min = 1, max = 128) @ConfigItem(position = 281, keyName = "overlaySize25", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList25) default int overlaySize25() { return 16; }
-	@ConfigItem(position = 282, keyName = "overlayX25", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList25) default int overlayX25() { return 0; }
-	@ConfigItem(position = 283, keyName = "overlayY25", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList25) default int overlayY25() { return 0; }
-	@Alpha @ConfigItem(position = 284, keyName = "overlayBgColor25", name = "Background color", description = "Background color behind the overlay text.", section = notificationList25) default Color overlayBgColor25() { return Color.BLACK; }
+	@ConfigItem(position = 299, keyName = "listAlias25", name = NAME_ALIAS, description = DESC_ALIAS, section = notificationList25) default String listAlias25() { return ""; }
+	@ConfigItem(position = 300, keyName = "notificationWords25", name = NAME_WORDS, description = DESC_WORDS, section = notificationList25) default String notificationWords25() { return ""; }
+	@ConfigItem(position = 301, keyName = "notificationRegex25", name = NAME_REGEX, description = DESC_REGEX, section = notificationList25) default String notificationRegex25() { return ""; }
+	@ConfigItem(position = 302, keyName = "notificationEnabled25", name = "Enable notification list 25", description = "", section = notificationList25) default Notification notificationEnabled25() { return Notification.OFF; }
+	@ConfigItem(position = 303, keyName = "overlayText25", name = "Text", description = "Text to show on screen when this notification triggers. Leave empty to disable.", section = notificationList25) default String overlayText25() { return ""; }
+	@Alpha @ConfigItem(position = 304, keyName = "overlayColor25", name = "Text color", description = "Color of the overlay text.", section = notificationList25) default Color overlayColor25() { return Color.WHITE; }
+	@Range(min = 1, max = 128) @ConfigItem(position = 305, keyName = "overlaySize25", name = "Text size", description = "Font size of the overlay text (between 1-128).", section = notificationList25) default int overlaySize25() { return 16; }
+	@ConfigItem(position = 306, keyName = "overlayX25", name = "Text X position", description = "Horizontal pixel offset from the left of the game canvas.", section = notificationList25) default int overlayX25() { return 0; }
+	@ConfigItem(position = 307, keyName = "overlayY25", name = "Text Y position", description = "Vertical pixel offset from the top of the game canvas.", section = notificationList25) default int overlayY25() { return 0; }
+	@Alpha @ConfigItem(position = 308, keyName = "overlayBgColor25", name = "Background color", description = "Background color behind the overlay text.", section = notificationList25) default Color overlayBgColor25() { return Color.BLACK; }
+	@Range(max = 120) @Units(Units.SECONDS) @ConfigItem(position = 309, keyName = "overlayDuration25", name = "Duration (seconds)", description = "How long this list's text stays on screen in timed modes. 0 uses the main Duration setting.", section = notificationList25) default int overlayDuration25() { return 0; }
 }

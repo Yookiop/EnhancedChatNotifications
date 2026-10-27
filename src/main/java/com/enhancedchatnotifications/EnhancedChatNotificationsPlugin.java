@@ -231,6 +231,13 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 		return s != null ? s : 16;
 	}
 
+	// 0 (or unset) means the list uses the main Duration setting.
+	private int getOverlayDuration(int list)
+	{
+		Integer d = configManager.getConfiguration(CONFIG_GROUP, "overlayDuration" + list, Integer.class);
+		return d != null && d > 0 ? d : config.overlayDuration();
+	}
+
 	private int getOverlayX(int list)
 	{
 		Integer x = configManager.getConfiguration(CONFIG_GROUP, "overlayX" + list, Integer.class);
@@ -353,7 +360,7 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 					String overlayText = getOverlayText(listNum);
 					if (!overlayText.isEmpty())
 					{
-						overlay.addEntry(listNum, overlayText, getOverlayColor(listNum), getOverlayBgColor(listNum), getOverlaySize(listNum), config.overlayDisplayMode(), config.overlayDuration(), getOverlayX(listNum), getOverlayY(listNum));
+						overlay.addEntry(listNum, overlayText, getOverlayColor(listNum), getOverlayBgColor(listNum), getOverlaySize(listNum), config.overlayDisplayMode(), getOverlayDuration(listNum), getOverlayX(listNum), getOverlayY(listNum));
 					}
 				}
 			}
