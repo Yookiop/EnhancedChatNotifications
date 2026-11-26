@@ -6,8 +6,6 @@ import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.inject.Provides;
 import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -27,10 +25,6 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.config.Notification;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
-import net.runelite.client.input.KeyListener;
-import net.runelite.client.input.KeyManager;
-import net.runelite.client.input.MouseListener;
-import net.runelite.client.input.MouseManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
@@ -63,12 +57,6 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 	private OverlayManager overlayManager;
 
 	@Inject
-	private MouseManager mouseManager;
-
-	@Inject
-	private KeyManager keyManager;
-
-	@Inject
 	private EnhancedChatNotificationsOverlay overlay;
 
 	@Inject
@@ -76,43 +64,6 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 	private String runeliteTitle;
 
 	private final List<List<Pattern>> allListPatterns = new ArrayList<>();
-
-	private final MouseListener mouseListener = new MouseListener()
-	{
-		@Override
-		public MouseEvent mouseClicked(MouseEvent e)
-		{
-			overlay.cancelUntilCancelledEntries();
-			return e;
-		}
-
-		@Override
-		public MouseEvent mousePressed(MouseEvent e) { return e; }
-		@Override
-		public MouseEvent mouseReleased(MouseEvent e) { return e; }
-		@Override
-		public MouseEvent mouseEntered(MouseEvent e) { return e; }
-		@Override
-		public MouseEvent mouseExited(MouseEvent e) { return e; }
-		@Override
-		public MouseEvent mouseDragged(MouseEvent e) { return e; }
-		@Override
-		public MouseEvent mouseMoved(MouseEvent e) { return e; }
-	};
-
-	private final KeyListener keyListener = new KeyListener()
-	{
-		@Override
-		public void keyPressed(KeyEvent e)
-		{
-			overlay.cancelUntilCancelledEntries();
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {}
-		@Override
-		public void keyTyped(KeyEvent e) {}
-	};
 
 	@Provides
 	EnhancedChatNotificationsConfig provideConfig(ConfigManager configManager)
@@ -124,8 +75,6 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 	protected void startUp()
 	{
 		overlayManager.add(overlay);
-		mouseManager.registerMouseListener(mouseListener);
-		keyManager.registerKeyListener(keyListener);
 		updateNotifications();
 	}
 
@@ -133,8 +82,6 @@ public class EnhancedChatNotificationsPlugin extends Plugin
 	protected void shutDown()
 	{
 		overlayManager.remove(overlay);
-		mouseManager.unregisterMouseListener(mouseListener);
-		keyManager.unregisterKeyListener(keyListener);
 		overlay.clearEntries();
 		allListPatterns.clear();
 	}
