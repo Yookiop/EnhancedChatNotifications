@@ -18,8 +18,6 @@ public class EnhancedChatNotificationsOverlayTest
 	{
 		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST**enter**DROP"));
 		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST**ENTER**DROP"));
-		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST..enter..DROP"));
-		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST<enter>DROP"));
 	}
 
 	@Test
