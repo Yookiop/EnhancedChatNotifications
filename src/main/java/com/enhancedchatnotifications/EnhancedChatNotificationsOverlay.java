@@ -26,8 +26,9 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 	private static final long MINIMUM_DISPLAY_MILLIS = 2000;
 	private static final int INTERACTION_IDLE_TICKS = (int) (MINIMUM_DISPLAY_MILLIS / Constants.CLIENT_TICK_LENGTH);
 
-	// The config panel's text field cannot hold a line break reliably, so "<enter>" is used as a marker.
-	private static final Pattern LINE_BREAK = Pattern.compile("<enter>", Pattern.CASE_INSENSITIVE);
+	// The config panel's text field cannot hold a line break reliably, so "**enter**" is used as a marker.
+	// "<enter>" keeps working, but cannot be shown in the config tooltip because that is rendered as HTML.
+	private static final Pattern LINE_BREAK = Pattern.compile("\\*\\*enter\\*\\*|<enter>|\\.\\.enter\\.\\.", Pattern.CASE_INSENSITIVE);
 
 	private final List<OverlayEntry> entries = new CopyOnWriteArrayList<>();
 
@@ -144,7 +145,7 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 	}
 
 	/**
-	 * Splits the configured text into the lines that are drawn. A literal {@code <enter>} is treated
+	 * Splits the configured text into the lines that are drawn. A literal {@code **enter**} is treated
 	 * as a line break so multiple lines can be configured from the config panel.
 	 */
 	static List<String> splitLines(String text)

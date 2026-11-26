@@ -16,8 +16,10 @@ public class EnhancedChatNotificationsOverlayTest
 	@Test
 	public void testSplitLinesOnPlaceholder()
 	{
+		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST**enter**DROP"));
+		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST**ENTER**DROP"));
+		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST..enter..DROP"));
 		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST<enter>DROP"));
-		assertEquals(Arrays.asList("TEST", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST<ENTER>DROP"));
 	}
 
 	@Test
@@ -30,6 +32,6 @@ public class EnhancedChatNotificationsOverlayTest
 	@Test
 	public void testSplitLinesKeepsBlankLines()
 	{
-		assertEquals(Arrays.asList("TEST", "", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST<enter><enter>DROP"));
+		assertEquals(Arrays.asList("TEST", "", "DROP"), EnhancedChatNotificationsOverlay.splitLines("TEST**enter****enter**DROP"));
 	}
 }
