@@ -41,7 +41,8 @@ public class EnhancedChatNotificationsOverlay extends Overlay
 	@Inject
 	private EnhancedChatNotificationsOverlay()
 	{
-		setPosition(OverlayPosition.TOP_LEFT);
+		setPosition(OverlayPosition.DYNAMIC);
+		setMovable(false);
 		// Draw on top of the minimap, inventory, chatbox and right-click menu instead of behind them.
 		setLayer(OverlayLayer.ALWAYS_ON_TOP);
 	}

@@ -6,7 +6,7 @@ Customizable screen and text notifications based on chat messages.
 
 - **Custom notifications**: Configure up to 25 unique notifications based on game chat messages. Below an example with a purple screen + Antifire text based on the chat message stating that the antifire is about to expire.
 
-- **Text Overlay**: Optionally display a text box (e.g. "Antifire") besides the screen notification. The text is drawn on top of the minimap, inventory and other interfaces, so it stays readable wherever you place it.
+- **Text Overlay**: Optionally display a text box (e.g. "Antifire") besides the screen notification. The text is drawn on top of the minimap, inventory and other interfaces, so it stays readable wherever you place it. The configured X/Y position is an absolute position on the game canvas, so other overlays (e.g. opponent info during combat) never shift it.
 
 - **Multiple lines**: Use `**enter**` in the text to start a new line (e.g. `TEST**enter**DROP`), which keeps the text compact enough to fit in a corner of the screen.
 
